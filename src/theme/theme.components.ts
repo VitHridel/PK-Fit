@@ -3,6 +3,11 @@ import { createTheme, Theme } from '@mui/material/styles'
 export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
     components: {
         MuiTypography: {
+            defaultProps: {
+                variantMapping: {
+                    subtitle1: 'p'
+                }
+            },
             styleOverrides: {
                 root: (({ theme, ownerState }) => ({
                     ...ownerState.variant === 'h1' && {
@@ -19,6 +24,11 @@ export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
                     ...ownerState.variant === 'h3' && {
                         [theme.breakpoints.down('md')]: {
                             fontSize: theme.typography.pxToRem(20),
+                        }
+                    },
+                    ...ownerState.variant === 'subtitle1' && {
+                        [theme.breakpoints.down('md')]: {
+                            fontSize: `${16 / 14}rem`,
                         }
                     },
                     ...ownerState.variant === 'body1' && {

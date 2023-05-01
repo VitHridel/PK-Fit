@@ -1,4 +1,5 @@
 import { Box, Stack, styled, Typography } from '@mui/material'
+import { Fragment } from 'react'
 
 interface WordsLineDividerProps {
     words: string[]
@@ -21,15 +22,15 @@ export const WordsLineDivider = ({ words }: WordsLineDividerProps) => {
             {words.map((word, i) => {
                 if (i !== words.length - 1) {
                     return (
-                        <>
+                        <Fragment key={i}>
                             <Typography variant="caption" color="primary" fontSize="1.25rem" fontWeight={500}>
                                 {word}
                             </Typography>
                             <LineDivider />
-                        </>
+                        </Fragment>
                     )
                 }
-                return <Typography variant="caption" color="primary" fontSize="1.25rem" fontWeight={500}>{word}</Typography>
+                return <Typography key={i} variant="caption" color="primary" fontSize="1.25rem" fontWeight={500}>{word}</Typography>
             })}
         </Stack>
     )

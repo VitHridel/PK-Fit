@@ -1,8 +1,9 @@
 import { HomeHero } from '@/components/pageComponents/Home/HomeHero'
-import { HomeServices } from '@/components/pageComponents/Home/HomeServices/HomeServices'
+import { HomeServices } from '@/components/pageComponents/Home/HomeServices'
 import { Section } from '@/components/Layout/layout.styles'
-import { Container, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { StyledNextLink } from '@/components/Link'
+import { HomeGallery } from '@/components/pageComponents/Home/HomeGallery/HomeGallery'
 
 const Home = () => {
     return (
@@ -16,13 +17,19 @@ const Home = () => {
                     </Typography>
                 </Container>
             </Section>
-            <Section sx={{ paddingTop: '0!important' }}>
+            <Section sx={{ paddingBottom: { xs: '9rem!important', lg: '12.5rem!important' } }}>
                 <Container maxWidth="xl">
                     <Typography variant="h3">Máte specifický problém nebo s cvičením teprve začínáte?</Typography>
                     <Typography fontWeight={500}>
                         Zavolejte mi na číslo <StyledNextLink href="tel:+420720458858" underline="always">+420 720 458 858</StyledNextLink> nebo vyplňte <StyledNextLink href="#kontaktni-formular" underline="always">kontaktní formulář</StyledNextLink> a můžeme se o všem nezávazně pobavit.
                     </Typography>
                 </Container>
+            </Section>
+            <Box component="section">
+                <HomeGallery />
+            </Box>
+            <Section>
+
             </Section>
         </>
     )

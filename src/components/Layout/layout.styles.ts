@@ -34,5 +34,8 @@ export const Section = styled('section')(({ theme }) => ({
     [theme.breakpoints.down('lg')]: {
         paddingTop: '9rem',
         paddingBottom: '9rem',
+    },
+    '&:not(:last-of-type)': {
+        paddingBottom: 0
     }
 }))

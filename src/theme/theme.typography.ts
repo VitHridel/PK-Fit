@@ -30,6 +30,12 @@ export const themeTypography = (theme: Theme) => createTheme(theme, {
             lineHeight: 1.5,
             marginBottom: '.8125rem'
         },
+        subtitle1: {
+            fontFamily: MuiFonts.Poppins,
+            fontSize: theme.typography.pxToRem(20),
+            fontWeight: 500,
+            lineHeight: 1.5,
+        },
         body1: {
             fontFamily: MuiFonts.Poppins,
             fontSize: theme.typography.pxToRem(18),
@@ -39,6 +45,6 @@ export const themeTypography = (theme: Theme) => createTheme(theme, {
         caption: {
             fontFamily: MuiFonts.Poppins,
             lineHeight: 1.5,
-        }
+        },
     },
 })

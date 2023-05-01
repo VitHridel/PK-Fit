@@ -1,7 +1,9 @@
 import { createTheme } from '@mui/material/styles'
-import { MuiFonts } from '@/theme/theme.fonts'
 import { CSSProperties } from '@mui/material/styles/createMixins'
 
+/*
+ *       Customize typography object
+ */
 declare module '@mui/material/styles' {
     interface BreakpointOverrides {
         xxl: true
