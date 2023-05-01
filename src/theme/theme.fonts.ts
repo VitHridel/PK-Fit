@@ -1,7 +1,7 @@
-import { Inter } from '@next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin-ext'] })
+const poppins = Poppins({ weight: ['400', '500', '600'], subsets: ['latin-ext'] })
 
 export const MuiFonts = {
-    Inter: inter.style.fontFamily
+    Poppins: poppins.style.fontFamily
 }

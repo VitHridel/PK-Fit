@@ -20,6 +20,7 @@ export const themeBaseline = (theme: Theme) => createTheme(theme, {
                 body: {
                     fontFamily: theme.typography.fontFamily,
                     color: theme.palette.primary.main,
+                    backgroundColor: theme.palette.common.white,
                     marginBottom: 0,
                 },
                 '#__next': {
