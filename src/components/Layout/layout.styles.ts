@@ -24,18 +24,32 @@ export const Main = styled('main')({
 })
 
 export const StyledFooter = styled('footer')(({ theme }) => ({
-    padding: '2rem 0',
-    background: theme.palette.primary.main,
+    padding: '4rem 0',
+    background: theme.palette.primary.light,
+    letterSpacing: '.185rem',
+    fontSize: '1rem',
+    '*': {
+        color: `${theme.palette.common.white}!important`,
+        letterSpacing: 'inherit!important',
+    },
 }))
 
-export const Section = styled('section')(({ theme }) => ({
+export const Section = styled('section', {
+    shouldForwardProp: (prop) => !(['withBottomPadding', 'background'] as PropertyKey[]).includes(prop),
+})<{ withBottomPadding?: boolean, background?: boolean }>(({ theme, withBottomPadding, background }) => ({
+    scrollMarginTop: theme.typography.pxToRem(headerHeight),
     paddingTop: '12.5rem',
     paddingBottom: '12.5rem',
     [theme.breakpoints.down('lg')]: {
         paddingTop: '9rem',
         paddingBottom: '9rem',
     },
-    '&:not(:last-of-type)': {
-        paddingBottom: 0
+    ...!withBottomPadding && {
+        '&:not(:last-of-type)': {
+            paddingBottom: 0
+        },
+    },
+    ...background && {
+        backgroundColor: theme.palette.background.default,
     }
 }))

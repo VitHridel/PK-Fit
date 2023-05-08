@@ -7,6 +7,7 @@ import { CSSProperties } from '@mui/material/styles/createMixins'
 declare module '@mui/material/styles' {
     interface BreakpointOverrides {
         xxl: true
+        900: true
     }
 }
 
@@ -19,16 +20,18 @@ declare module "@mui/material/styles/createMixins" {
 
 export const themeConfig = createTheme({
     breakpoints: {
-        keys: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
+        keys: ['xs', 'sm', '900', 'md', 'lg', 'xl', 'xxl'],
         values: {
             xs: 0,
-            sm: 600,
-            md: 960,
-            lg: 1280,
-            xl: 1400,
-            xxl: 1700,
+            sm: 700,
+            ['900']: 900,
+            md: 1152,
+            lg: 1472,
+            xl: 1592,
+            xxl: 1892,
         },
     },
+    spacing: (factor: number) => `${factor * 2}rem`,
     mixins: {
         primaryBackgroundHover: {
             position: 'relative',

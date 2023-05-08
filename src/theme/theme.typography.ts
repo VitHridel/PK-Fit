@@ -4,6 +4,7 @@ import { MuiFonts } from '@/theme/theme.fonts'
 export const themeTypography = (theme: Theme) => createTheme(theme, {
     typography: {
         fontFamily: MuiFonts.Poppins,
+        htmlFontSize: 16,
         allVariants: {
             fontFamily: MuiFonts.Poppins,
             color: theme.palette.text.primary,
@@ -20,7 +21,7 @@ export const themeTypography = (theme: Theme) => createTheme(theme, {
             fontSize: '2rem',
             fontWeight: 600,
             textTransform: 'uppercase',
-            marginBottom: '.6rem',
+            marginBottom: '.2rem',
             lineHeight: 1.5,
         },
         h3: {
@@ -33,17 +34,20 @@ export const themeTypography = (theme: Theme) => createTheme(theme, {
         subtitle1: {
             fontFamily: MuiFonts.Poppins,
             fontSize: theme.typography.pxToRem(20),
+            color: theme.palette.primary.main,
             fontWeight: 500,
             lineHeight: 1.5,
+            marginBottom: '1.25rem',
         },
         body1: {
             fontFamily: MuiFonts.Poppins,
             fontSize: theme.typography.pxToRem(18),
-            marginBottom: '1rem',
+            marginBottom: '1.25rem',
             lineHeight: 1.5,
         },
         caption: {
             fontFamily: MuiFonts.Poppins,
+            fontSize: theme.typography.pxToRem(13),
             lineHeight: 1.5,
         },
     },

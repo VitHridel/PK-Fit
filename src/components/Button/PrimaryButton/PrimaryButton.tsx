@@ -1,8 +1,7 @@
-import { ChildrenInterface } from '@/global.interface'
-import { ButtonProps, SxProps, Typography } from '@mui/material'
+import { ButtonProps, LinkProps, SxProps, Typography } from '@mui/material'
 import { StyledPrimaryButton, StyledPrimaryButtonProps } from '@/components/Button/PrimaryButton/primaryButton.styles'
 
-interface PrimaryButtonProps extends ChildrenInterface, StyledPrimaryButtonProps, ButtonProps {
+interface PrimaryButtonProps extends StyledPrimaryButtonProps, ButtonProps, Pick<LinkProps, 'target'> {
     textSx?: SxProps
 }
 
@@ -13,11 +12,10 @@ export const PrimaryButton = ({ children, textSx, ...buttonProps }: PrimaryButto
                 <Typography
                     position="relative"
                     zIndex={2}
-                    fontSize="inherit"
-                    fontWeight="inherit"
+                    textTransform="none"
                     marginBottom={0}
                     color="common.white"
-                    sx={{ fontWeight: 500, ...textSx }}
+                    sx={{ fontWeight: 600, ...textSx }}
                 >
                     {children}
                 </Typography>

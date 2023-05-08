@@ -6,7 +6,7 @@ interface WordsLineDividerProps {
 }
 
 const LineDivider = styled(Box)(({ theme }) => ({
-    margin: '0 1rem',
+    margin: '0 .8rem',
     height: '2px',
     width: '2.2rem',
     [theme.breakpoints.up('md')]: {
@@ -23,7 +23,7 @@ export const WordsLineDivider = ({ words }: WordsLineDividerProps) => {
                 if (i !== words.length - 1) {
                     return (
                         <Fragment key={i}>
-                            <Typography variant="caption" color="primary" fontSize="1.25rem" fontWeight={500}>
+                            <Typography variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={500}>
                                 {word}
                             </Typography>
                             <LineDivider />

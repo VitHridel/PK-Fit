@@ -1,7 +1,6 @@
-import { Box, styled } from '@mui/material'
-import { StyledNextLink } from '@/components/Link'
+import { Box, styled, Link } from '@mui/material'
 
-export const NavLink = styled(StyledNextLink)(({ theme }) => ({
+export const NavLink = styled(Link)(({ theme }) => ({
     textTransform: 'uppercase',
     fontWeight: theme.typography.fontWeightBold,
     color: theme.palette.text.primary,

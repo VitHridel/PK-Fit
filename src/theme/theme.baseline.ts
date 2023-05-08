@@ -12,9 +12,6 @@ export const themeBaseline = (theme: Theme) => createTheme(theme, {
                 html: {
                     scrollBehavior: 'smooth',
                     fontSize: '16px',
-                    [theme.breakpoints.down('md')]: {
-                        fontSize: '14px',
-                    },
                     lineHeight: 1.6,
                 },
                 body: {
