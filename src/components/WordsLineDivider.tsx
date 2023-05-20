@@ -30,7 +30,7 @@ export const WordsLineDivider = ({ words }: WordsLineDividerProps) => {
                         </Fragment>
                     )
                 }
-                return <Typography key={i} variant="caption" color="primary" fontSize="1.25rem" fontWeight={500}>{word}</Typography>
+                return <Typography key={i} variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={500}>{word}</Typography>
             })}
         </Stack>
     )
