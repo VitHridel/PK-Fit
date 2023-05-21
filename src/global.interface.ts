@@ -13,3 +13,11 @@ export interface CourseInterface {
     text: string
     link: string
 }
+
+export interface ContactFormDataInterface {
+    fullname: string,
+    phone?: string,
+    email: string,
+    note: string,
+    token?: string
+}

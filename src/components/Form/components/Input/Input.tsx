@@ -15,7 +15,7 @@ export const Input = ({ label, errorMessage, ...inputProps }: InputProps) => {
                 id={inputProps.id ?? inputProps.name}
                 {...inputProps}
             />
-            {errorMessage && (
+            {inputProps.error && errorMessage !== undefined && errorMessage !== '' && (
                 <InputMessage variant="caption">{errorMessage}</InputMessage>
             )}
         </FormControl>

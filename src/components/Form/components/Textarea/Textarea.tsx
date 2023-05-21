@@ -5,6 +5,7 @@ import { StyledTextarea } from '@/components/Form/components/Textarea/textarea.s
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string
+    error?: boolean
     errorMessage?: string
 }
 
@@ -13,7 +14,7 @@ export const Textarea = ({ label, errorMessage, ...textareaProps}: TextareaProps
         <FormControl sx={{ position: 'relative', width: '100%' }}>
             {label && <Label htmlFor={textareaProps.id ?? textareaProps.name}>{label}</Label>}
             <StyledTextarea {...textareaProps} />
-            {errorMessage && (
+            {textareaProps.error && errorMessage !== undefined && errorMessage !== '' && (
                 <InputMessage variant="caption">{errorMessage}</InputMessage>
             )}
         </FormControl>

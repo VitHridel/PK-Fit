@@ -7,7 +7,7 @@ import { CSSProperties } from '@mui/material/styles/createMixins'
 declare module '@mui/material/styles' {
     interface BreakpointOverrides {
         xxl: true
-        900: true
+        ['sm-md']: true
     }
 }
 
@@ -20,11 +20,11 @@ declare module "@mui/material/styles/createMixins" {
 
 export const themeConfig = createTheme({
     breakpoints: {
-        keys: ['xs', 'sm', '900', 'md', 'lg', 'xl', 'xxl'],
+        keys: ['xs', 'sm', 'sm-md', 'md', 'lg', 'xl', 'xxl'],
         values: {
             xs: 0,
             sm: 700,
-            ['900']: 900,
+            ['sm-md']: 900,
             md: 1152,
             lg: 1472,
             xl: 1592,

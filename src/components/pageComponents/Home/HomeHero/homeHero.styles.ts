@@ -5,7 +5,7 @@ export const HomeHeroImageHolder = styled(Stack)(({ theme }) => ({
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     lineHeight: 0,
-    [theme.breakpoints.down('900')]: {
+    [theme.breakpoints.down('sm-md')]: {
         width: '100%',
         marginTop: '-10rem'
     },

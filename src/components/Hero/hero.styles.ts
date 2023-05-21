@@ -8,16 +8,6 @@ export const StyledHero = styled(Stack)(({ theme }) => ({
         paddingTop: '4rem'
     },
     [theme.breakpoints.down('sm')]: {
-        paddingTop: '3rem'
+        paddingTop: '1rem'
     },
-}))
-
-export const HeroSocials = styled(Stack)(({ theme }) => ({
-    svg: {
-        transition: '.3s ease-in-out',
-        fill: 'linear-gradient(74.37deg, #4AC8C1 50.76%, #59D6B7 96.31%)',
-        '&:hover': {
-            fill: 'linear-gradient(74.37deg, #27A9A2 50.76%, #0DDAA7 96.31%)'
-        }
-    }
 }))

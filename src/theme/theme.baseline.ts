@@ -27,8 +27,9 @@ export const themeBaseline = (theme: Theme) => createTheme(theme, {
                 },
                 img: {
                     maxWidth: '100%',
-                    height: 'auto',
+                    width: 'auto',
                     maxHeight: '100%',
+                    height: 'auto',
                 }
             }
         },

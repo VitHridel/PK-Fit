@@ -23,14 +23,14 @@ export const WordsLineDivider = ({ words }: WordsLineDividerProps) => {
                 if (i !== words.length - 1) {
                     return (
                         <Fragment key={i}>
-                            <Typography variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={500}>
+                            <Typography variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={600}>
                                 {word}
                             </Typography>
                             <LineDivider />
                         </Fragment>
                     )
                 }
-                return <Typography key={i} variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={500}>{word}</Typography>
+                return <Typography key={i} variant="caption" color="primary" fontSize={{ xs: '1rem', md: '1.25rem'}} fontWeight={600}>{word}</Typography>
             })}
         </Stack>
     )

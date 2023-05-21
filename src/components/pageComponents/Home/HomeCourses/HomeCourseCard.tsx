@@ -39,6 +39,17 @@ interface HomeCourseCardProps extends CourseInterface {
     sx?: SxProps
 }
 
+const CourseText = styled(Typography)(({ theme }) => ({
+    fontSize: theme.typography.pxToRem(15),
+    marginBottom: 0,
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+    // textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    // whiteSpace: 'nowrap',
+}))
+
 export const HomeCourseCard = ({ image, headline, place, date, text, link, sx }: HomeCourseCardProps) => {
     return (
         <Card href={link} target="_blank" underline="none" sx={sx}>
@@ -46,13 +57,13 @@ export const HomeCourseCard = ({ image, headline, place, date, text, link, sx }:
                 src={image}
                 alt={headline}
             />
-            <Stack padding=".5rem 1.25rem 1.25rem">
+            <Stack padding=".5rem 1.25rem 1.25rem" position="relative">
                 <Stack minHeight={{ xs: 'unset', sm: '4.6rem' }}>
                     <Typography variant="h3" fontSize="1.125rem" fontWeight={600} marginBottom={0}>{headline}</Typography>
                     <Typography variant="caption">{place}</Typography>
                 </Stack>
                 <Typography variant="caption" fontSize="1rem" fontWeight={600} marginY=".5rem">{date}</Typography>
-                <Typography fontSize={`${15/16}rem`} marginBottom={0}>{text}</Typography>
+                <CourseText title={text}>{text}</CourseText>
             </Stack>
         </Card>
     )

@@ -1,10 +1,11 @@
 import { createTheme, Theme } from '@mui/material/styles'
 
-export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
+export const themeComponents = (themeBase: Theme) => createTheme({
+    ...themeBase,
     components: {
         MuiContainer: {
             styleOverrides: {
-                root: (({ theme }) => ({
+                root: ({ theme }) => ({
                     [theme.breakpoints.down('md')]: {
                         paddingLeft: '2rem',
                         paddingRight: '2rem',
@@ -13,17 +14,17 @@ export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
                         paddingLeft: '1.2rem',
                         paddingRight: '1.2rem',
                     },
-                }))
+                })
             }
         },
         MuiButton: {
             styleOverrides: {
-                root: (({ theme, ownerState }) => ({
+                root: ({ theme, ownerState }) => ({
                     ...ownerState.size === 'large' && {
                         minWidth: theme.typography.pxToRem(223),
                         padding: `${theme.typography.pxToRem(11)} ${theme.typography.pxToRem(43)}`,
                     }
-                }))
+                })
             }
         },
         MuiTypography: {
@@ -33,7 +34,7 @@ export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
                 }
             },
             styleOverrides: {
-                root: (({ theme, ownerState }) => ({
+                root: ({ theme, ownerState }) => ({
                     ...ownerState.variant === 'h1' && {
                         [theme.breakpoints.down('sm')]: {
                             fontSize: '2.5rem',
@@ -61,20 +62,20 @@ export const themeComponents = (themeBase: Theme) => createTheme(themeBase, {
                             lineHeight: 1.6,
                         }
                     },
-                }))
+                })
             }
         },
         MuiLink: {
             styleOverrides: {
-                root: (({ theme, ownerState }) => ({
+                root: ({ theme, ownerState }) => ({
                     transition: theme.transitions.create('all', {
                         duration: theme.transitions.duration.standard,
                         easing: theme.transitions.easing.easeOut,
                     }),
-                    ...ownerState.variant !== 'none' && {
+                    // ...ownerState.variant !== 'none' && {
                         textDecorationColor: 'inherit',
-                    }
-                }))
+                    // }
+                })
             }
         }
     }

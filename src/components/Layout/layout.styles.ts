@@ -37,7 +37,6 @@ export const StyledFooter = styled('footer')(({ theme }) => ({
 export const Section = styled('section', {
     shouldForwardProp: (prop) => !(['withBottomPadding', 'background'] as PropertyKey[]).includes(prop),
 })<{ withBottomPadding?: boolean, background?: boolean }>(({ theme, withBottomPadding, background }) => ({
-    scrollMarginTop: theme.typography.pxToRem(headerHeight),
     paddingTop: '12.5rem',
     paddingBottom: '12.5rem',
     [theme.breakpoints.down('lg')]: {
