@@ -1,7 +1,5 @@
 import { StyledHero } from '@/components/Hero/hero.styles'
 import { Container, Stack, Typography } from '@mui/material'
-import { Instagram, Facebook } from '@mui/icons-material'
-import Tiktok from '@/assets/img/icons/tiktok.svg'
 import Image from 'next/image'
 import heroImg from '@/assets/img/hp-hero.png'
 import { PrimaryButton } from '@/components/Button/PrimaryButton/PrimaryButton'

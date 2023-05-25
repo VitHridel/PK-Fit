@@ -4,7 +4,6 @@ import { StyledNextLink } from '@/components/Link'
 import Image from 'next/image'
 import logoWhite from '@/assets/img/logo-white.png'
 import { Instagram, Facebook } from '@mui/icons-material'
-import Tiktok from '@/assets/img/icons/tiktok.svg'
 import { FooterSocialButton } from './footer.style'
 
 export const Footer = () => {
@@ -27,16 +26,6 @@ export const Footer = () => {
                         </FooterSocialButton>
                         <FooterSocialButton variant="contained">
                             <Facebook />
-                        </FooterSocialButton>
-                        <FooterSocialButton
-                            variant="contained"
-                            sx={{
-                                'svg path:first-of-type': {
-                                    fill: 'none',
-                                }
-                            }}
-                        >
-                            <Tiktok />
                         </FooterSocialButton>
                     </Stack>
                     <StyledNextLink href="/gdpr">Podmínky GDPR</StyledNextLink>
