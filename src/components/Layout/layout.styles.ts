@@ -34,7 +34,7 @@ export const StyledFooter = styled('footer')(({ theme }) => ({
     letterSpacing: '.185rem',
     fontSize: '1rem',
     '*': {
-        color: `${theme.palette.text.primary}`,
+        color: `${theme.palette.text.primary}!important`,
         letterSpacing: 'inherit!important',
     },
 }))

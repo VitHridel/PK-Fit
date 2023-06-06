@@ -16,8 +16,8 @@ export const Footer = () => {
                     <StyledNextLink href="tel:+420720458858" underline="none">+420 720 458 858</StyledNextLink>
                     <StyledNextLink href="mailto:info@pk-fit.cz" underline="none">info@pk-fit.cz</StyledNextLink>
                 </Stack>
-                <Stack justifyContent="center" alignItems="center" width={{ xs: '100%', ['sm-md']: 'unset' }} order={{ xs: -1, ['sm-md']: 0 }} marginBottom={{ xs: '3rem', ['sm-md']: 0 }}>
-                    <Image src={logoWhite} alt="Petra Konrádová" />
+                <Stack justifyContent="center" alignItems="center" sx={{ img: { minWidth: '220px' } }} width={{ xs: '100%', ['sm-md']: 'unset' }} order={{ xs: -1, ['sm-md']: 0 }} marginBottom={{ xs: '3rem', ['sm-md']: 0 }}>
+                    <Image src={logoWhite} alt="Petra Konrádová" quality={100} loading="lazy" />
                 </Stack>
                 <Stack alignSelf={{ ['sm-md']: 'flex-end' }} gap="1rem">
                     <Stack direction="row" gap=".8rem">
