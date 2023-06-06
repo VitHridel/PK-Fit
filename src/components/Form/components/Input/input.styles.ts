@@ -27,7 +27,8 @@ export const Label = styled('label')(({ theme }) => ({
 export const InputMessage = styled(Typography)(({ theme }) => ({
     position: 'absolute',
     top: '100%',
-    paddingLeft: theme.typography.pxToRem(8),
+    right: 0,
+    paddingRight: theme.typography.pxToRem(8),
     color: theme.palette.error.main,
     fontSize: theme.typography.pxToRem(12),
 }))

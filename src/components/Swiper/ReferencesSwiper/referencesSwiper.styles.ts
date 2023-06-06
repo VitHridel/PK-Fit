@@ -6,12 +6,13 @@ export const ReferencesSwiperWrapper = styled(Container)(({ theme }) => ({
     '.swiper': {
         '.swiper-slide': {
             textAlign: 'center',
+            height: 'auto',
+            /*[theme.breakpoints.up('md')]: {
+                '&:not(.swiper-slide-next)': {
+                    scale: '.9'
+                }
+            }*/
         },
-        [theme.breakpoints.up('md')]: {
-            '.swiper-slide-next': {
-                transform: 'scale(1.1)'
-            }
-        }
     }
 }))
 

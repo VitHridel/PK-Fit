@@ -11,6 +11,7 @@ export const StyledPrimaryButton = styled(Button, {
     position: 'relative',
     background: 'linear-gradient(74.37deg, #4AC8C1 50.76%, #59D6B7 96.31%)',
     borderRadius: theme.typography.pxToRem(2),
+    boxShadow: 'none!important',
     '&:before': {
         content: '""',
         position: 'absolute',

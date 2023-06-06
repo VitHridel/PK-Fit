@@ -21,14 +21,22 @@ export const Footer = () => {
                 </Stack>
                 <Stack alignSelf={{ ['sm-md']: 'flex-end' }} gap="1rem">
                     <Stack direction="row" gap=".8rem">
-                        <FooterSocialButton variant="contained">
+                        <FooterSocialButton
+                            variant="contained"
+                            href="https://instagram.com/petra_konradova_fitness?igshid=MzRlODBiNWFlZA=="
+                            target="_blank"
+                        >
                             <Instagram />
                         </FooterSocialButton>
-                        <FooterSocialButton variant="contained">
+                        <FooterSocialButton
+                            variant="contained"
+                            href="https://www.facebook.com/petra.konradova.fitness"
+                            target="_blank"
+                        >
                             <Facebook />
                         </FooterSocialButton>
                     </Stack>
-                    <StyledNextLink href="/gdpr">Podmínky GDPR</StyledNextLink>
+                    <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr">Podmínky GDPR</StyledNextLink>
                 </Stack>
             </Container>
         </StyledFooter>

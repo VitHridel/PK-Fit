@@ -4,14 +4,14 @@ import SwiperClass from 'swiper/types/swiper-class'
 import ArrowPrev from '@/assets/img/arrow-prev.svg'
 import ArrowNext from '@/assets/img/arrow-next.svg'
 import 'swiper/css'
-import { Typography, useTheme } from '@mui/material'
+import { Stack, Typography, useTheme } from '@mui/material'
 import {
     ReferencesSwiperButtonNext,
     ReferencesSwiperButtonPrev,
     ReferencesSwiperWrapper
 } from '@/components/Swiper/ReferencesSwiper/referencesSwiper.styles'
 import { useState } from 'react'
-import Image from 'next/image'
+import { homeReferences } from '@/utils/Home/home.references'
 
 export const ReferencesSwiper = () => {
     const [swiper, setSwiper] = useState<SwiperClass>()
@@ -30,6 +30,7 @@ export const ReferencesSwiper = () => {
             <Swiper
                 onSwiper={setSwiper}
                 slidesPerView={3}
+                loop
                 breakpoints={{
                     [theme.breakpoints.values.xs]: {
                         slidesPerView: 1,
@@ -48,36 +49,14 @@ export const ReferencesSwiper = () => {
                     },
                 }}
             >
-                <SwiperSlide>
-                    <Typography>
-                        consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam
-                    </Typography>
-                    <Typography variant="caption" fontSize="1.25rem" color="primary">Jméno klienta, Praha</Typography>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography>
-                        consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam
-                    </Typography>
-                    <Typography variant="caption" fontSize="1.25rem" color="primary">Jméno klienta, Praha</Typography>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography>
-                        consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam
-                    </Typography>
-                    <Typography variant="caption" fontSize="1.25rem" color="primary">Jméno klienta, Praha</Typography>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography>
-                        consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam
-                    </Typography>
-                    <Typography variant="caption" fontSize="1.25rem" color="primary">Jméno klienta, Praha</Typography>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Typography>
-                        consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam
-                    </Typography>
-                    <Typography variant="caption" fontSize="1.25rem" color="primary">Jméno klienta, Praha</Typography>
-                </SwiperSlide>
+                {homeReferences.map((reference, i) => (
+                    <SwiperSlide key={i}>
+                        <Stack height="100%" justifyContent="center">
+                            <Typography>{reference.text}</Typography>
+                            <Typography variant="caption" fontSize="1.25rem" color="primary">{reference.name}</Typography>
+                        </Stack>
+                    </SwiperSlide>
+                ))}
             </Swiper>
             <ReferencesSwiperButtonPrev onClick={slidePrev}>
                 <ArrowPrev />

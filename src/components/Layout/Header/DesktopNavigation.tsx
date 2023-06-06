@@ -9,7 +9,7 @@ export const DesktopNavigation = () => {
             <List sx={{ position: 'relative', display: 'flex', whiteSpace: 'nowrap', padding: '.125rem 2rem' }}>
                 {pages.map(page => {
                     return (
-                        <ListItem key={page.name} sx={{ fontSize: '1rem', padding: '0 1rem' }}>
+                        <ListItem disablePadding key={page.name} sx={{ fontSize: '1rem', paddingX: { xs: '1rem', md: '2rem' } }}>
                             <NavLink href={page.href} underline="none">
                                 {page.name}
                             </NavLink>

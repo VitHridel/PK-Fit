@@ -18,10 +18,9 @@ export const HomeServices = () => {
                     <Service
                         key={service.headline}
                         {...service}
-                        sx={(theme) => ({
-                            // maxWidth: theme.typography.pxToRem(500),
+                        sx={{
                             width: {xs: '100%', sm: 'calc(50% - 2rem)', lg: `calc(${100 / 3}% - 2rem)`}
-                        })}
+                        }}
                     />
                 ))}
             </Stack>) : (

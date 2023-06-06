@@ -12,25 +12,33 @@ export const HomeGallery = () => {
             <Stack width={{ xs: '50%', md: '25%' }}>
                 <Image
                     src={image1}
-                    alt=""
+                    alt="Petra Konrádová"
+                    loading="lazy"
+                    quality={100}
                 />
             </Stack>
             <Stack  width={{ xs: '50%', md: '25%' }}>
                 <Image
                     src={image2}
-                    alt=""
+                    alt="Petra Konrádová"
+                    loading="lazy"
+                    quality={100}
                 />
             </Stack>
             <Stack  width={{ xs: '50%', md: '25%' }}>
                 <Image
                     src={image3}
-                    alt=""
+                    alt="Petra Konrádová"
+                    loading="lazy"
+                    quality={100}
                 />
             </Stack>
             <Stack  width={{ xs: '50%', md: '25%' }}>
                 <Image
                     src={image4}
-                    alt=""
+                    alt="Petra Konrádová"
+                    loading="lazy"
+                    quality={100}
                 />
             </Stack>
         </HomeGalleryHolder>

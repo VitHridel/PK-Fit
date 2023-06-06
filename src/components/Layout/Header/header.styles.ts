@@ -1,6 +1,8 @@
-import { Box, styled, Link, Stack, List } from '@mui/material'
+import { Box, styled, Stack, List } from '@mui/material'
+import { StyledNextLink } from '@/components/Link'
+import { mobileHeaderHeight } from '@/components/Layout/layout.styles'
 
-export const NavLink = styled(Link)(({ theme }) => ({
+export const NavLink = styled(StyledNextLink)(({ theme }) => ({
     textTransform: 'uppercase',
     fontWeight: theme.typography.fontWeightBold,
     color: theme.palette.text.primary,
@@ -20,11 +22,13 @@ export const NavLine = styled(Box)({
     background: 'linear-gradient(74.37deg, #4AC8C1 50.76%, #59D6B7 96.31%)',
 })
 
-export const StyledMobileNavigation = styled(Stack)(({ theme }) => ({
+export const StyledMobileNavigation = styled(Stack, {
+    shouldForwardProp: (prop) => prop !== 'isActive'
+})<{ isActive: boolean }>(({ theme, isActive }) => ({
     position: 'fixed',
-    top: 0,
+    top: theme.typography.pxToRem(mobileHeaderHeight),
     left: 0,
-    height: 0,
+    height: isActive ? `calc(100vh - ${theme.typography.pxToRem(mobileHeaderHeight)})` : 0,
     width: '100%',
     background: theme.palette.background.default,
     overflow: 'hidden',
@@ -52,7 +56,7 @@ export const MobileNavigationList = styled(List)(({ theme }) => ({
     }
 }))
 
-export const MobileNavigationLink = styled(Link)(({ theme }) => ({
+export const MobileNavigationLink = styled(StyledNextLink)(({ theme }) => ({
     display: 'flex',
     width: '100%',
     justifyContent: 'space-between',

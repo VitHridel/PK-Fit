@@ -26,7 +26,7 @@ export const HomeStory = () => {
                 </Stack>
             )}
             <Stack width={{ xs: '100%', md: 'calc(50% - 1rem)' }} justifyContent="center" alignItems={{ xs: 'center', md: 'flex-start' }}>
-                <Image src={me} alt="Petra Konrádová" />
+                <Image src={me} alt="Petra Konrádová" quality={100} loading="lazy" />
             </Stack>
             <Stack width={{ xs: '100%', md: 'calc(50% - 1rem)' }} alignItems={{ xs: 'center', md: 'flex-end' }}>
                 <Stack>

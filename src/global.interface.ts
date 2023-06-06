@@ -21,3 +21,8 @@ export interface ContactFormDataInterface {
     note: string,
     token?: string
 }
+
+export interface ReferenceInterface {
+    text: string
+    name: string
+}

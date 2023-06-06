@@ -13,7 +13,7 @@ export const themePalette = (themeBase: Theme) => createTheme(themeBase, {
             default: '#E7F1F1',
         },
         common: {
-            white: '#F0F4F4'
+            white: '#F0F4F4',
         }
     },
 })

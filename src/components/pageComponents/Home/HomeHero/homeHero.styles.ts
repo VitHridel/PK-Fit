@@ -1,7 +1,7 @@
 import { Stack, styled } from '@mui/material'
 
 export const HomeHeroImageHolder = styled(Stack)(({ theme }) => ({
-    width: '50%',
+    width: '55%',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
     lineHeight: 0,
@@ -11,6 +11,8 @@ export const HomeHeroImageHolder = styled(Stack)(({ theme }) => ({
     },
     [theme.breakpoints.down('sm')]: {
         marginTop: '-4rem',
+        position: 'relative',
+        right: '-2rem',
     },
     '@media (max-width: 340px)': {
         marginTop: '0'

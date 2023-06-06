@@ -2,7 +2,7 @@ import { GdprContent, GdprSubtitle } from '@/components/pageComponents/Gdpr/Gdpr
 import { Container, Stack, Typography } from '@mui/material'
 import { PrimaryButton } from '@/components/Button/PrimaryButton/PrimaryButton'
 
-const Gdpr = () => {
+const ZasadyZpracovaniOsobnichUdajuGdpr = () => {
     return (
         <Container sx={{ paddingY: '2rem' }}>
             <Typography variant="h1">Zásady zpracování osobních údajů</Typography>
@@ -132,4 +132,4 @@ const Gdpr = () => {
     )
 }
 
-export default Gdpr
+export default ZasadyZpracovaniOsobnichUdajuGdpr

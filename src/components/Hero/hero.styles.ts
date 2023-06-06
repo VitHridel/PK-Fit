@@ -1,13 +1,22 @@
-import { Stack, styled } from '@mui/material'
+import { styled } from '@mui/material'
+import { headerHeight } from '@/components/Layout/layout.styles'
 
-export const StyledHero = styled(Stack)(({ theme }) => ({
+export const StyledHero = styled('section')(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
     background: theme.palette.background.default,
     width: '100%',
-    paddingTop: '8rem',
+    paddingTop: '4rem',
+    minHeight: 'fit-content',
+    height: `calc(100vh - ${theme.typography.pxToRem(headerHeight)})`,
+    maxHeight: '55rem',
+    overflow: 'hidden',
     [theme.breakpoints.down('md')]: {
-        paddingTop: '4rem'
+        height: 'fit-content',
+        maxHeight: 'unset',
     },
     [theme.breakpoints.down('sm')]: {
-        paddingTop: '1rem'
+        paddingTop: '1rem',
     },
 }))

@@ -5,6 +5,7 @@ import {
 } from '@mui/material'
 
 export const headerHeight = 120
+export const mobileHeaderHeight = 107
 
 export const AppBar = styled(MuiAppBar)(({ theme }) => ({
     position: 'sticky',
@@ -14,6 +15,9 @@ export const AppBar = styled(MuiAppBar)(({ theme }) => ({
     background: alpha(theme.palette.background.default, .85),
     backdropFilter: 'blur(3px)',
     WebkitBackdropFilter: 'blur(3px)',
+    [theme.breakpoints.down('sm-md')]: {
+        height: theme.typography.pxToRem(mobileHeaderHeight),
+    }
 }))
 
 export const Main = styled('main')({
@@ -24,12 +28,13 @@ export const Main = styled('main')({
 })
 
 export const StyledFooter = styled('footer')(({ theme }) => ({
+    overflow: 'hidden',
     padding: '4rem 0',
     background: theme.palette.primary.light,
     letterSpacing: '.185rem',
     fontSize: '1rem',
     '*': {
-        color: `${theme.palette.common.white}!important`,
+        color: `${theme.palette.text.primary}`,
         letterSpacing: 'inherit!important',
     },
 }))
@@ -42,6 +47,10 @@ export const Section = styled('section', {
     [theme.breakpoints.down('lg')]: {
         paddingTop: '9rem',
         paddingBottom: '9rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+        paddingTop: '4.2rem',
+        paddingBottom: '4.2rem',
     },
     ...!withBottomPadding && {
         '&:not(:last-of-type)': {

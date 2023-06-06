@@ -20,7 +20,7 @@ const FormSendHolder = styled(Stack, {
     opacity: 0,
     zIndex: -1,
     transition: theme.transitions.create('opacity', {
-        duration: theme.transitions.duration.short,
+        duration: theme.transitions.duration.complex,
         easing: theme.transitions.easing.easeInOut,
     }),
     ...isActive && {

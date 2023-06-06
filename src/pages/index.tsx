@@ -1,7 +1,7 @@
 import { HomeHero } from '@/components/pageComponents/Home/HomeHero/HomeHero'
 import { HomeServices } from '@/components/pageComponents/Home/HomeServices'
 import { Section } from '@/components/Layout/layout.styles'
-import { Box, Container, Link, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { StyledNextLink } from '@/components/Link'
 import { HomeGallery } from '@/components/pageComponents/Home/HomeGallery/HomeGallery'
 import { HomeCourses } from '@/components/pageComponents/Home/HomeCourses/HomeCourses'
@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <>
             <HomeHero />
-            <Section id="sluzby">
+            <Section id="sluzby" sx={{ paddingTop: { sm: '7.5rem' } }}>
                 <Container maxWidth="xl">
                     <HomeServices />
                     <Typography display={{ xs: 'none', md: 'block' }}>
@@ -21,11 +21,11 @@ const Home = () => {
                     </Typography>
                 </Container>
             </Section>
-            <Section sx={{ paddingBottom: { xs: '9rem!important', lg: '12.5rem!important' } }}>
+            <Section sx={{ paddingBottom: { xs: '4rem!important', lg: '12.5rem!important' } }}>
                 <Container maxWidth="xl">
                     <Typography variant="h3">Máte specifický problém nebo s cvičením teprve začínáte?</Typography>
                     <Typography fontWeight={500}>
-                        Zavolejte mi na číslo <StyledNextLink href="tel:+420720458858" underline="always">+420 720 458 858</StyledNextLink> nebo vyplňte <Link href="#kontakt" underline="always">kontaktní formulář</Link> a můžeme se o všem nezávazně pobavit.
+                        Zavolejte mi na číslo <StyledNextLink href="tel:+420720458858" underline="always">+420 720 458 858</StyledNextLink> nebo vyplňte <StyledNextLink href="#kontakt" underline="always">kontaktní formulář</StyledNextLink> a můžeme se o všem nezávazně pobavit.
                     </Typography>
                 </Container>
             </Section>
@@ -41,9 +41,9 @@ const Home = () => {
             <Section id="kontakt" background>
                 <ContactForm />
             </Section>
-            {/*<Section id="reference" background>
+            <Section id="reference" background>
                 <HomeReferences />
-            </Section>*/}
+            </Section>
         </>
     )
 }

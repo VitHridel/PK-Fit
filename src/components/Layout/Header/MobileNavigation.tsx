@@ -15,21 +15,22 @@ interface MobileNavigationProps {
 }
 
 export const MobileNavigation = ({ isActive, onClose }: MobileNavigationProps) => {
-    const navRef = useRef<HTMLDivElement>(null)
+    // const navRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (navRef.current !== null) {
+        const html = document.querySelector('html')
+        if (html) {
             if (isActive) {
-                navRef.current.style.height = `${window.innerHeight}px`
+                html.style.overflow = 'hidden'
             } else {
-                navRef.current.style.height = '0'
+                html.style.overflow = 'unset'
             }
         }
     }, [isActive])
 
     return (
-        <StyledMobileNavigation ref={navRef}>
-            <Container component={Stack} sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: '7.5rem', paddingBottom: '1rem' }}>
+        <StyledMobileNavigation isActive={isActive}/* ref={navRef}*/>
+            <Container component={Stack} sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: '1rem', paddingBottom: '1rem' }}>
                 <MobileNavigationList>
                     {pages.map(page => {
                         return (

@@ -8,21 +8,24 @@ const Card = styled(StyledNextLink)(({ theme }) => ({
     position: 'relative',
     width: '23.5%',
     textAlign: 'left',
-    '&:before': {
+    border: `2px solid ${theme.palette.primary.main}`,
+    '&:after': {
         content: '""',
         position: 'absolute',
-        top: 0,
-        left: 0,
-        width: 'calc(100% + 2px)',
-        height: 'calc(100% + 2px)',
+        top: '-2px',
+        left: '-2px',
+        opacity: 0,
+        width: 'calc(100% + 4px)',
+        height: 'calc(100% + 4px)',
         border: `2px solid ${theme.palette.primary.main}`,
-        transition: theme.transitions.create(['border'], {
+        transition: theme.transitions.create(['border', 'opacity'], {
             duration: theme.transitions.duration.standard,
             easing: theme.transitions.easing.easeIn,
         }),
     },
-    '&:hover:before': {
-        border: `3px solid ${theme.palette.primary.light}`
+    '&:hover:after': {
+        opacity: 1,
+        border: `${theme.typography.pxToRem(3)} solid ${theme.palette.primary.light}`
     },
     [theme.breakpoints.down('md')]: {
         width: '47.5%'

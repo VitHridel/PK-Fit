@@ -13,7 +13,7 @@ export const Service = ({ icon, headline, sx, text }: ServiceProps) => {
         <Stack gap=".66rem" sx={sx}>
             <Stack direction="row" alignItems="center" gap="1rem" height={{ xs: '3.3rem', md: '3.125rem' }}>
                 {icon && (
-                    <Stack sx={{ alignItems: 'center', width: '2.5rem' }}>
+                    <Stack sx={{ alignItems: 'center', width: '3.25rem' }}>
                         {icon}
                     </Stack>
                 )}

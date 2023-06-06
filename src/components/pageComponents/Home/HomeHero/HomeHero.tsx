@@ -8,16 +8,16 @@ import { PrimarySocials } from '@/components/PrimarySocials'
 
 export const HomeHero = () => {
     return (
-        <StyledHero sx={{ justifyContent: 'flex-end' }}>
-            <Container maxWidth="xl" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+        <StyledHero>
+            <Container maxWidth="xl" sx={{ display: 'flex', flexWrap: 'wrap', paddingRight: { sm: '1rem' } }}>
                 <Stack sx={{
                     paddingY: { xs: '1rem', md: '2rem' },
-                    width: { xs: '100%', ['sm-md']: '50%' },
+                    width: { xs: '100%', ['sm-md']: '45%' },
                     maxWidth: '50rem',
                     justifyContent: 'space-between',
                 }}>
                     <Stack>
-                        <Typography variant="subtitle1">Petra Konrádová, fitness trenérka</Typography>
+                        <Typography variant="subtitle1" marginBottom=".25rem">Petra Konrádová, fitness trenérka</Typography>
                         <Typography variant="h1" textTransform="uppercase">
                             Zdravé tělo bez bolesti
                         </Typography>
@@ -34,7 +34,7 @@ export const HomeHero = () => {
                     </Stack>
                 </Stack>
                 <HomeHeroImageHolder>
-                    <Image src={heroImg} alt="Petra Konrádová" />
+                    <Image src={heroImg} alt="Petra Konrádová" quality={100} priority />
                 </HomeHeroImageHolder>
             </Container>
         </StyledHero>

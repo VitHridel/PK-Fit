@@ -53,6 +53,7 @@ export const ContactForm = () => {
 
     return (
         <Container maxWidth="xl" sx={{ position: 'relative' }}>
+            <ContactFormSend isActive={formSend} onButtonClick={newForm} />
             <Stack sx={formSend ? { visibility: 'hidden', opacity: 0 , zIndex: 0 } : undefined}>
                 <Typography variant="h2">Kontaktujte mě</Typography>
                 <Typography variant="subtitle1">
@@ -97,12 +98,11 @@ export const ContactForm = () => {
                             <PrimaryButton type="submit" size="large">odeslat</PrimaryButton>
                             {formError !== undefined && <Typography fontSize="1rem" color="error" marginBottom={0}>{formError}</Typography>}
                         </Stack>
-                        <Typography fontSize=".875rem">Odesláním tohoto formuláře souhlasíte s <StyledNextLink href="/gdpr">podmínkami GDPR.</StyledNextLink></Typography>
+                        <Typography fontSize=".875rem">Odesláním tohoto formuláře souhlasíte s <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr">podmínkami GDPR.</StyledNextLink></Typography>
                     </Grid>
                     <Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!} />
                 </Grid>
             </Stack>
-            <ContactFormSend isActive={formSend} onButtonClick={newForm} />
         </Container>
     )
 }
