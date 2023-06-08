@@ -13,7 +13,7 @@ export const Textarea = ({ label, errorMessage, ...textareaProps}: TextareaProps
     return (
         <FormControl sx={{ position: 'relative', width: '100%' }}>
             {label && <Label htmlFor={textareaProps.id ?? textareaProps.name}>{label}</Label>}
-            <StyledTextarea {...textareaProps} />
+            <StyledTextarea id={textareaProps.id ?? textareaProps.name} {...textareaProps} />
             {textareaProps.error && errorMessage !== undefined && errorMessage !== '' && (
                 <InputMessage variant="caption">{errorMessage}</InputMessage>
             )}

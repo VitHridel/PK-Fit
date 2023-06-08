@@ -51,7 +51,7 @@ export const ReferencesSwiper = () => {
             >
                 {homeReferences.map((reference, i) => (
                     <SwiperSlide key={i}>
-                        <Stack height="100%" justifyContent="center">
+                        <Stack height="100%" justifyContent="flex-start">
                             <Typography>{reference.text}</Typography>
                             <Typography variant="caption" fontSize="1.25rem" color="primary">{reference.name}</Typography>
                         </Stack>

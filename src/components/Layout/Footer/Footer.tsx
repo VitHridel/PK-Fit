@@ -25,6 +25,7 @@ export const Footer = () => {
                             variant="contained"
                             href="https://instagram.com/petra_konradova_fitness?igshid=MzRlODBiNWFlZA=="
                             target="_blank"
+                            aria-label="Instagram"
                         >
                             <Instagram />
                         </FooterSocialButton>
@@ -32,11 +33,12 @@ export const Footer = () => {
                             variant="contained"
                             href="https://www.facebook.com/petra.konradova.fitness"
                             target="_blank"
+                            aria-label="Facebook"
                         >
                             <Facebook />
                         </FooterSocialButton>
                     </Stack>
-                    <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr">Podmínky GDPR</StyledNextLink>
+                    <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr" scroll>Podmínky GDPR</StyledNextLink>
                 </Stack>
             </Container>
         </StyledFooter>
