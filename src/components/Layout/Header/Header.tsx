@@ -50,7 +50,7 @@ export const Header = () => {
             <Container maxWidth="xxl">
                 <Stack component="nav" direction="row" alignItems={{ xs: 'center', sm: 'flex-end' }} justifyContent="space-between" overflow="hidden" padding={{ xs: '.75rem 0', ['sm-md']: 0 }}>
                     <StyledNextLink href="/" scroll sx={{ minWidth: '10rem', lineHeight: 0, position: 'relative', img: { width: '100%' } }}>
-                        <Image src={logo} alt="PK-FIT Logo" priority quality={100} />
+                        <Image src={logo} alt="PK-FIT Logo" quality={100} />
                     </StyledNextLink>
                     {!isSmallDisplay ? <DesktopNavigation /> : <IconButton onClick={toggleMobileNav}><BurgerIcon /></IconButton>}
                 </Stack>

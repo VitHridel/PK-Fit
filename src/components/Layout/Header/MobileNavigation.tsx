@@ -15,21 +15,31 @@ interface MobileNavigationProps {
 }
 
 export const MobileNavigation = ({ isActive, onClose }: MobileNavigationProps) => {
-    // const navRef = useRef<HTMLDivElement>(null)
+    const navRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const html = document.querySelector('html')
+        let timeout: NodeJS.Timeout
         if (html) {
             if (isActive) {
                 html.style.overflow = 'hidden'
+                timeout = setTimeout(() => {
+                    if (navRef.current) {
+                        navRef.current.style.overflow = 'auto'
+                    }
+                }, 250)
             } else {
                 html.style.overflow = 'unset'
+                if (navRef.current) {
+                    navRef.current.style.overflow = 'hidden'
+                }
             }
         }
+        return () => clearTimeout(timeout)
     }, [isActive])
 
     return (
-        <StyledMobileNavigation isActive={isActive}/* ref={navRef}*/>
+        <StyledMobileNavigation isActive={isActive} ref={navRef}>
             <Container component={Stack} sx={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', paddingTop: '1rem', paddingBottom: '1rem' }}>
                 <MobileNavigationList>
                     {pages.map(page => {
@@ -44,7 +54,7 @@ export const MobileNavigation = ({ isActive, onClose }: MobileNavigationProps) =
                     })}
                 </MobileNavigationList>
 
-                <Stack alignItems="center" gap="1.5rem" paddingTop="2rem">
+                <Stack alignItems="center" gap="1.5rem" paddingTop="2rem" height="fit-content" margin="auto">
                     <Link href="tel:+420720458858" underline="none" fontWeight={600} letterSpacing=".1rem">+420 720 458 858</Link>
                     <Link href="mailto:info@pk-fit.cz" underline="none" fontWeight={600} letterSpacing=".1rem">info@pk-fit.cz</Link>
                     <Stack direction="row" justifyContent="center" gap="1rem" marginTop=".5rem">

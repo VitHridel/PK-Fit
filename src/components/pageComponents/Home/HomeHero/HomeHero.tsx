@@ -9,7 +9,7 @@ import { PrimarySocials } from '@/components/PrimarySocials'
 export const HomeHero = () => {
     return (
         <StyledHero>
-            <Container maxWidth="xl" sx={{ display: 'flex', flexWrap: 'wrap', paddingRight: { sm: '1rem' } }}>
+            <Container maxWidth="xl" sx={{ display: 'flex', flexWrap: 'wrap' }}>
                 <Stack sx={{
                     paddingY: { xs: '1rem', md: '2rem' },
                     width: { xs: '100%', ['sm-md']: '45%' },

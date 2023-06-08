@@ -48,6 +48,9 @@ export const Section = styled('section', {
         paddingTop: '9rem',
         paddingBottom: '9rem',
     },
+    [theme.breakpoints.down('md')]: {
+        scrollMarginTop: '3rem',
+    },
     [theme.breakpoints.down('sm')]: {
         paddingTop: '4.2rem',
         paddingBottom: '4.2rem',

@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <>
             <HomeHero />
-            <Section id="sluzby" sx={{ paddingTop: { sm: '7.5rem' } }}>
+            <Section id="sluzby" sx={{ scrollMarginTop: '1rem', paddingTop: { sm: '7.5rem' } }}>
                 <Container maxWidth="xl">
                     <HomeServices />
                     <Typography display={{ xs: 'none', md: 'block' }}>
