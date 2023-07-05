@@ -2,9 +2,6 @@ import { styled } from '@mui/material'
 import { headerHeight } from '@/components/Layout/layout.styles'
 
 export const StyledHero = styled('section')(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
     background: theme.palette.background.default,
     width: '100%',
     paddingTop: '4rem',

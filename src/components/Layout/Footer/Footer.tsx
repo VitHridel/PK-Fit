@@ -23,7 +23,7 @@ export const Footer = () => {
                     <Stack direction="row" gap=".8rem">
                         <FooterSocialButton
                             variant="contained"
-                            href="https://instagram.com/petra_konradova_fitness?igshid=MzRlODBiNWFlZA=="
+                            href={process.env.NEXT_PUBLIC_IG}
                             target="_blank"
                             aria-label="Instagram"
                         >
@@ -31,14 +31,14 @@ export const Footer = () => {
                         </FooterSocialButton>
                         <FooterSocialButton
                             variant="contained"
-                            href="https://www.facebook.com/petra.konradova.fitness"
+                            href={process.env.NEXT_PUBLIC_FB}
                             target="_blank"
                             aria-label="Facebook"
                         >
                             <Facebook />
                         </FooterSocialButton>
                     </Stack>
-                    <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr" scroll>Podmínky GDPR</StyledNextLink>
+                    <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr" scroll target="_blank">Podmínky GDPR</StyledNextLink>
                 </Stack>
             </Container>
         </StyledFooter>

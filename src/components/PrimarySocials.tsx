@@ -11,7 +11,7 @@ export const PrimarySocials = ({ buttonSize }: PrimarySocialsProps) => {
     return (
         <>
             <PrimaryButton
-                href="https://instagram.com/petra_konradova_fitness?igshid=MzRlODBiNWFlZA=="
+                href={process.env.NEXT_PUBLIC_IG}
                 target="_blank"
                 aria-label="Instagram"
                 withTopLine={false}
@@ -28,7 +28,7 @@ export const PrimarySocials = ({ buttonSize }: PrimarySocialsProps) => {
             </PrimaryButton>
 
             <PrimaryButton
-                href="https://www.facebook.com/petra.konradova.fitness"
+                href={process.env.NEXT_PUBLIC_FB}
                 target="_blank"
                 aria-label="Facebook"
                 withTopLine={false}

@@ -30,7 +30,6 @@ export const ReferencesSwiper = () => {
             <Swiper
                 onSwiper={setSwiper}
                 slidesPerView={3}
-                loop
                 breakpoints={{
                     [theme.breakpoints.values.xs]: {
                         slidesPerView: 1,

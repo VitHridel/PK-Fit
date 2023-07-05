@@ -5,7 +5,7 @@ import {
 } from '@mui/material'
 
 export const headerHeight = 120
-export const mobileHeaderHeight = 107
+export const mobileHeaderHeight = 80
 
 export const AppBar = styled(MuiAppBar)(({ theme }) => ({
     position: 'sticky',

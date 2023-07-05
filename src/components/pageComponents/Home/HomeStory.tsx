@@ -22,10 +22,9 @@ export const HomeStory = () => {
             {isSmallDisplay && (
                 <Stack>
                     <Typography variant="h2">Můj příběh</Typography>
-                    <Typography variant="subtitle1">amet commodo nulla facilisi nullam</Typography>
                 </Stack>
             )}
-            <Stack width={{ xs: '100%', md: 'calc(50% - 1rem)' }} justifyContent="center" alignItems={{ xs: 'center', md: 'flex-start' }}>
+            <Stack sx={{ img: { width: '100%' } }} width={{ xs: '100%', md: 'calc(50% - 1rem)' }} justifyContent="center" alignItems={{ xs: 'center', md: 'flex-start' }}>
                 <Image src={me} alt="Petra Konrádová" quality={100} loading="lazy" />
             </Stack>
             <Stack width={{ xs: '100%', md: 'calc(50% - 1rem)' }} alignItems={{ xs: 'center', md: 'flex-end' }}>
@@ -33,7 +32,6 @@ export const HomeStory = () => {
                     {!isSmallDisplay && (
                         <>
                             <Typography variant="h2">Můj příběh</Typography>
-                            <Typography variant="subtitle1">amet commodo nulla facilisi nullam</Typography>
                         </>
                     )}
                     <Typography>

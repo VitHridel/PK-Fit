@@ -8,7 +8,18 @@ export const HomeGalleryHolder = styled(Stack)(({ theme }) => ({
     backgroundRepeat: 'no-repeat',
     maxWidth: '1920px',
     width: '100%',
+    margin: '0 auto',
     flexDirection: 'row',
     flexWrap: 'wrap',
     paddingTop: '2rem',
+}))
+
+export const HomeGalleryImageHolder = styled(Stack)(({ theme }) => ({
+    width: '25%',
+    img: {
+        width: '100%'
+    },
+    [theme.breakpoints.down('md')]: {
+        width: '50%'
+    }
 }))

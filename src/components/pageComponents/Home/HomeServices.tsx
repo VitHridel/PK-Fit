@@ -10,7 +10,7 @@ export const HomeServices = () => {
 
     return (
         <>
-            <Typography variant="h2">Služby které nabízím</Typography>
+            <Typography variant="h2">Služby</Typography>
             <WordsLineDivider words={['Diagnostika', 'Pohyb', 'Prevence']} />
             {!isSmallDisplay ? (<Stack direction="row" justifyContent={{xs: 'center', sm: 'space-between'}} flexWrap="wrap"
                     gap={{xs: '2rem'}} margin="3.125rem 0 4.375rem">
