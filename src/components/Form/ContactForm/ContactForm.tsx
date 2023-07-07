@@ -5,16 +5,26 @@ import { StyledNextLink } from '@/components/Link'
 import { Textarea } from '@/components/Form/components/Textarea/Textarea'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
-import { useRef, useState } from 'react'
+// import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
+import { FormEvent, useRef, useState } from 'react'
 import { ContactFormSend } from '@/components/Form/ContactForm/ContactFormSend'
 import { ContactFormDataInterface } from '@/global.interface'
 import axios from 'axios'
+import Script from 'next/script'
+
+declare global {
+    interface Window {
+        turnstile: {
+            reset(container: string): void
+            getResponse(container: string): string
+        }
+    }
+}
 
 export const ContactForm = () => {
     const [formSend, setFormSend] = useState<boolean>(false)
     const [formError, setFormError] = useState<string>()
-    const turnstileRef = useRef<TurnstileInstance>(null)
+    const captchaRef = useRef<HTMLDivElement>(null)
 
     const initialValues: ContactFormDataInterface = {
         fullname: '',
@@ -33,14 +43,14 @@ export const ContactForm = () => {
         initialValues,
         validationSchema,
         onSubmit: async (values) => {
-            values.token = turnstileRef.current?.getResponse()
+            values.token = window.turnstile.getResponse('#my-widget')
             try {
                 await axios.post('/api/contact-form', values)
                 setFormSend(true)
-                turnstileRef.current?.reset()
             } catch (e: any) {
                 setFormError('Něco se nepovedlo, zkuste to prosím znovu nebo mě kontaktujte na mém telefonním čísle.')
-                turnstileRef.current?.reset()
+            } finally {
+                window.turnstile.reset('#my-widget')
             }
         }
     })
@@ -53,6 +63,18 @@ export const ContactForm = () => {
 
     return (
         <Container maxWidth="xl" sx={{ position: 'relative' }}>
+            <Script id="cf-turnstile-callback">
+                {`window.onloadTurnstileCallback = function () {
+          window.turnstile.render('#my-widget', {
+            sitekey: '${process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY}',
+          })
+        }`}
+            </Script>
+            <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+                async={true}
+                defer={true}
+            />
             <ContactFormSend isActive={formSend} onButtonClick={newForm} />
             <Stack sx={formSend ? { visibility: 'hidden', opacity: 0 , zIndex: 0 } : undefined}>
                 <Typography variant="h2">Kontaktujte mě</Typography>
@@ -84,6 +106,7 @@ export const ContactForm = () => {
                             onChange={formik.handleChange}
                         />
                     </Grid>
+                    <div ref={captchaRef} id="my-widget" className="checkbox" />
                     <Grid xs={12} sm={7}>
                         <Textarea
                             name="note"
@@ -100,7 +123,7 @@ export const ContactForm = () => {
                         </Stack>
                         <Typography fontSize=".875rem">Odesláním tohoto formuláře souhlasíte s <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr" scroll target="_blank">podmínkami GDPR.</StyledNextLink></Typography>
                     </Grid>
-                    <Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!} scriptOptions={{ defer: true, appendTo: 'body' }} />
+                    {/*<Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!} scriptOptions={{ defer: true, appendTo: 'body' }} />*/}
                 </Grid>
             </Stack>
         </Container>

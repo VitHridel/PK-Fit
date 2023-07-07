@@ -4,6 +4,7 @@ import heroImg from '@/assets/img/hp-hero.png'
 import { PrimaryButton } from '@/components/Button/PrimaryButton/PrimaryButton'
 import { HomeHeroImageHolder } from '@/components/pageComponents/Home/HomeHero/homeHero.styles'
 import { PrimarySocials } from '@/components/PrimarySocials'
+import Image from 'next/image'
 
 export const HomeHero = () => {
     return (
@@ -34,7 +35,7 @@ export const HomeHero = () => {
                         </Stack>
                     </Stack>
                     <HomeHeroImageHolder>
-                        <img src={heroImg.src} alt="Petra Konrádová" />
+                        <Image src={heroImg} alt="Petra Konrádová" quality={100} priority />
                     </HomeHeroImageHolder>
                 </Container>
             </Stack>

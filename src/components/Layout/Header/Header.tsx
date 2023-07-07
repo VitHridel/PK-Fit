@@ -1,11 +1,10 @@
 import { StyledNextLink } from '@/components/Link'
 import Image from 'next/image'
-import logo from '@/../public/logo.png'
+import Logo from '@/../public/logo.svg'
 import BurgerIcon from '@/assets/img/icons/burger.svg'
 import { Container, Stack, useTheme, useMediaQuery, Box, IconButton } from '@mui/material'
 import { AppBar } from '../layout.styles'
 import { DesktopNavigation } from '@/components/Layout/Header/DesktopNavigation'
-import { useRouter } from 'next/router'
 import { MobileNavigation } from '@/components/Layout/Header/MobileNavigation'
 import { useState } from 'react'
 
@@ -51,7 +50,7 @@ export const Header = () => {
                 <Container maxWidth="xxl">
                     <Stack component="nav" direction="row" alignItems={{ xs: 'center', sm: 'flex-end' }} justifyContent="space-between" overflow="hidden" padding={{ xs: '.75rem 0', ['sm-md']: 0 }}>
                         <StyledNextLink href="/" scroll sx={{ minWidth: '10rem', lineHeight: 0, position: 'relative', img: { width: '100%' } }}>
-                            <Image src={logo} alt="PK-FIT Logo" quality={100} />
+                            <Logo />
                         </StyledNextLink>
                         {!isSmallDisplay ? <DesktopNavigation /> : <IconButton onClick={toggleMobileNav}><BurgerIcon /></IconButton>}
                     </Stack>

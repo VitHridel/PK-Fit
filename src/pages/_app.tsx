@@ -23,7 +23,9 @@ export default function App({ Component, pageProps, emotionCache = clientSideEmo
               <meta property="og:description" content="Váš parťák na cestě za zdravým životním stylem. | PK-FIT" />
               <meta property="og:image" content="https://pk-fit.cz/og-image.png" />
               <link rel="icon" href="/favicon.svg" />
+              <link rel="mask-icon" href="/favicon.svg" />
               <link rel="apple-touch-icon" href="/favicon.svg" />
+              <link rel="apple-touch-icon-precomposed" href="/favicon.svg" />
           </Head>
           <ThemeProvider theme={theme}>
               <CssBaseline />

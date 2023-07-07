@@ -12,31 +12,31 @@ export const HomeGallery = () => {
     return (
         <HomeGalleryHolder>
             <HomeGalleryImageHolder>
-                <img
-                    src={image1.src}
+                <Image
+                    src={image1}
                     alt="pk-fit"
-                    loading="lazy"
+                    quality={100}
                 />
             </HomeGalleryImageHolder>
             <HomeGalleryImageHolder>
-                <img
-                    src={image2.src}
+                <Image
+                    src={image2}
                     alt="pk-fit"
-                    loading="lazy"
+                    quality={100}
                 />
             </HomeGalleryImageHolder>
             <HomeGalleryImageHolder>
-                <img
-                    src={image3.src}
+                <Image
+                    src={image3}
                     alt="pk-fit"
-                    loading="lazy"
+                    quality={100}
                 />
             </HomeGalleryImageHolder>
             <HomeGalleryImageHolder>
-                <img
-                    src={image4.src}
+                <Image
+                    src={image4}
                     alt="pk-fit"
-                    loading="lazy"
+                    quality={100}
                 />
             </HomeGalleryImageHolder>
         </HomeGalleryHolder>

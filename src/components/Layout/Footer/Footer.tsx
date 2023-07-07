@@ -1,8 +1,8 @@
-import { Button, Container, Stack, Typography } from '@mui/material'
+import { Container, Stack, Typography } from '@mui/material'
 import { StyledFooter } from '@/components/Layout/layout.styles'
 import { StyledNextLink } from '@/components/Link'
 import Image from 'next/image'
-import logoWhite from '@/assets/img/logo-white.png'
+import LogoWhite from '@/assets/img/logo-white.svg'
 import { Instagram, Facebook } from '@mui/icons-material'
 import { FooterSocialButton } from './footer.style'
 
@@ -16,8 +16,8 @@ export const Footer = () => {
                     <StyledNextLink href="tel:+420720458858" underline="none">+420 720 458 858</StyledNextLink>
                     <StyledNextLink href="mailto:info@pk-fit.cz" underline="none">info@pk-fit.cz</StyledNextLink>
                 </Stack>
-                <Stack justifyContent="center" alignItems="center" sx={{ img: { minWidth: '220px' } }} width={{ xs: '100%', ['sm-md']: 'unset' }} order={{ xs: -1, ['sm-md']: 0 }} marginBottom={{ xs: '3rem', ['sm-md']: 0 }}>
-                    <Image src={logoWhite} alt="Petra Konrádová" quality={100} loading="lazy" />
+                <Stack justifyContent="center" alignItems="center" sx={{ svg: { minWidth: '220px' } }} width={{ xs: '100%', ['sm-md']: 'unset' }} order={{ xs: -1, ['sm-md']: 0 }} marginBottom={{ xs: '3rem', ['sm-md']: 0 }}>
+                    <LogoWhite />
                 </Stack>
                 <Stack alignSelf={{ ['sm-md']: 'flex-end' }} gap="1rem">
                     <Stack direction="row" gap=".8rem">
