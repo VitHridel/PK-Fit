@@ -5,8 +5,7 @@ import { StyledNextLink } from '@/components/Link'
 import { Textarea } from '@/components/Form/components/Textarea/Textarea'
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-// import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
-import { FormEvent, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { ContactFormSend } from '@/components/Form/ContactForm/ContactFormSend'
 import { ContactFormDataInterface } from '@/global.interface'
 import axios from 'axios'
@@ -123,7 +122,6 @@ export const ContactForm = () => {
                         </Stack>
                         <Typography fontSize=".875rem">Odesláním tohoto formuláře souhlasíte s <StyledNextLink href="/zasady-zpracovani-osobnich-udaju-gdpr" scroll target="_blank">podmínkami GDPR.</StyledNextLink></Typography>
                     </Grid>
-                    {/*<Turnstile ref={turnstileRef} siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY!} scriptOptions={{ defer: true, appendTo: 'body' }} />*/}
                 </Grid>
             </Stack>
         </Container>
