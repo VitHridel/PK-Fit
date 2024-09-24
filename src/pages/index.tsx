@@ -8,6 +8,7 @@ import { HomeCourses } from '@/components/pageComponents/Home/HomeCourses/HomeCo
 import { HomeStory } from '@/components/pageComponents/Home/HomeStory'
 import { ContactForm } from '@/components/Form/ContactForm/ContactForm'
 import { HomeReferences } from '@/components/pageComponents/Home/HomeReferences'
+import { HomeSeminars } from '@/components/pageComponents/Home/HomeSeminars'
 
 const Home = () => {
     return (
@@ -35,8 +36,11 @@ const Home = () => {
             <Section id="kurzy">
                 <HomeCourses />
             </Section>
-            <Section id="o-mne" withBottomPadding>
+            <Section id="o-mne">
                 <HomeStory />
+            </Section>
+            <Section id="seminare" withBottomPadding>
+                <HomeSeminars />
             </Section>
             <Section id="kontakt" background>
                 <ContactForm />

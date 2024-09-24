@@ -18,6 +18,10 @@ export const pages: Array<{ href: string, name: string }> = [
         href: '/#o-mne',
     },
     {
+        name: 'absolvované semináře',
+        href: '/#seminare',
+    },
+    {
         name: 'reference',
         href: '/#reference',
     },

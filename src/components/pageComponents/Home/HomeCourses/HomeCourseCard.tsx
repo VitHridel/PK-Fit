@@ -46,10 +46,10 @@ const CourseText = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.pxToRem(15),
     marginBottom: 0,
     display: '-webkit-box',
-    WebkitLineClamp: 2,
-    WebkitBoxOrient: 'vertical',
+    // WebkitLineClamp: 2,
+    // WebkitBoxOrient: 'vertical',
+    // overflow: 'hidden',
     // textOverflow: 'ellipsis',
-    overflow: 'hidden',
     // whiteSpace: 'nowrap',
 }))
 
