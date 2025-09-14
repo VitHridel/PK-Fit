@@ -12,7 +12,7 @@ export const HomeCourses = () => {
         <Container maxWidth="xl">
             <Typography variant="h2">Sportovní víkendy a akce</Typography>
             {!isSmallDisplay ? (
-                <Stack direction="row" flexWrap="wrap" justifyContent="flex-start" marginBottom={{ xs: '3rem', md: '4rem' }} gap={{ xs: '2rem 5%', md: '2%' }}>
+                <Stack direction="row" flexWrap="wrap" justifyContent="flex-start" marginBottom={{ xs: '3rem', md: '4rem' }} gap={{ xs: '2rem 5%', md: '2rem 2%' }}>
                     {homeCourses.map((course, i) => (
                         <HomeCourseCard key={i} {...course} />
                     ))}

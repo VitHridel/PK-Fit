@@ -46,27 +46,28 @@ const CourseText = styled(Typography)(({ theme }) => ({
     fontSize: theme.typography.pxToRem(15),
     marginBottom: 0,
     display: '-webkit-box',
-    // WebkitLineClamp: 2,
-    // WebkitBoxOrient: 'vertical',
-    // overflow: 'hidden',
-    // textOverflow: 'ellipsis',
-    // whiteSpace: 'nowrap',
+    WebkitLineClamp: 6,
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
 }))
 
 export const HomeCourseCard = ({ image, headline, place, date, text, link, sx }: HomeCourseCardProps) => {
     return (
-        <Card href={link} target="_blank" underline="none" sx={sx}>
-            <Image
-                src={image}
-                alt={headline}
-            />
+        <Card href={link} target="_blank" underline="none" sx={sx} title={text}>
+            <Stack sx={{ width: '100%', aspectRatio: '4/3', position: 'relative' }}>
+                <Image
+                    src={image}
+                    fill
+                    alt={headline}
+                />
+            </Stack>
             <Stack padding=".5rem 1.25rem 1.25rem" position="relative">
                 <Stack minHeight={{ xs: 'unset', sm: '4.6rem' }}>
                     <Typography variant="h3" fontSize="1.125rem" fontWeight={600} marginBottom={0}>{headline}</Typography>
                     <Typography variant="caption">{place}</Typography>
                 </Stack>
                 <Typography variant="caption" fontSize="1rem" fontWeight={600} marginY=".5rem">{date}</Typography>
-                <CourseText title={text}>{text}</CourseText>
+                <CourseText>{text}</CourseText>
             </Stack>
         </Card>
     )
