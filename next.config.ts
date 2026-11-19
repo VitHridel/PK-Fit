@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
                                         name: 'preset-default',
                                         params: { overrides: { removeViewBox: false } },
                                     },
+                                    // Unique, file-based ids so gradients in different inline SVGs
+                                    // (logo, logo mark) never collide on one page.
+                                    'prefixIds',
                                 ],
                             },
                         },

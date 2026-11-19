@@ -22,6 +22,7 @@ export function Hero() {
 
     return (
         <section
+            id="uvod"
             data-hero
             aria-labelledby="hero-title"
             className="relative isolate flex min-h-svh flex-col justify-center px-gutter pt-24 pb-36 lg:pt-20 lg:pb-0"

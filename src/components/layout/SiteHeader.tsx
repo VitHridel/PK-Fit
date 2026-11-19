@@ -11,6 +11,7 @@ export function SiteHeader() {
                     <Link
                         href="/"
                         aria-label="PK-FIT – úvodní stránka"
+                        data-site-logo
                         className="block w-36 rounded-sm sm:w-40"
                     >
                         <Logo />

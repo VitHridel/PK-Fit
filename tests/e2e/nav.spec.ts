@@ -122,3 +122,40 @@ for (const width of [320, 375]) {
         expect(box!.x + box!.width).toBeLessThanOrEqual(width)
     })
 }
+
+test.describe('desktop side nav logo', () => {
+    test.skip(({ isMobile }) => isMobile, 'desktop only')
+
+    test('a small logo appears under the nav once the header logo scrolls away', async ({
+        page,
+    }) => {
+        await page.goto('/')
+        const navLogo = mainNav(page).locator('[data-nav-logo]')
+        await expect(navLogo).toHaveAttribute('inert', '')
+        await expect(navLogo).toHaveCSS('opacity', '0')
+
+        await page.evaluate(() => window.scrollTo({ top: 600, behavior: 'instant' }))
+        await expect(navLogo).not.toHaveAttribute('inert', '')
+        await expect(navLogo).toHaveCSS('opacity', '1')
+        const logoLink = navLogo.getByRole('link', { name: 'PK-FIT – úvodní stránka' })
+        await expect(logoLink).toHaveAttribute('href', '/#uvod')
+
+        // On the homepage it takes the visitor back up to the hero.
+        await logoLink.click()
+        await expect
+            .poll(() => page.evaluate(() => window.scrollY), { timeout: 5000 })
+            .toBeLessThan(2)
+        await expect(navLogo).toHaveAttribute('inert', '')
+    })
+})
+
+test('element ids are unique (inline SVG gradients must not collide)', async ({ page }) => {
+    await page.goto('/')
+    const duplicates = await page.evaluate(() => {
+        const seen = new Map<string, number>()
+        for (const el of document.querySelectorAll('[id]'))
+            seen.set(el.id, (seen.get(el.id) ?? 0) + 1)
+        return [...seen].filter(([, count]) => count > 1).map(([id]) => id)
+    })
+    expect(duplicates).toEqual([])
+})

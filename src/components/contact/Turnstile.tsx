@@ -36,7 +36,14 @@ export function Turnstile({ siteKey, resetSignal }: { siteKey: string; resetSign
 
     useEffect(() => {
         renderWidget() // script already loaded (e.g. after client-side navigation)
+        // The script may still be downloading from an earlier visit to this page, in which case
+        // next/script won't call onReady for this mount; wait for the API to appear instead.
+        const waitForApi = window.setInterval(() => {
+            if (widgetId.current) window.clearInterval(waitForApi)
+            else if (window.turnstile) renderWidget()
+        }, 250)
         return () => {
+            window.clearInterval(waitForApi)
             if (widgetId.current) {
                 try {
                     window.turnstile?.remove(widgetId.current)
