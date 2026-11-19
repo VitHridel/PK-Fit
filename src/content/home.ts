@@ -93,3 +93,18 @@ export const notFound = {
     text: 'Stránka, kterou hledáte neexistuje. Vraťte se prosím na úvod webu.',
     backLabel: 'zpátky na hlavní stránku',
 }
+
+export const blogTeaser = {
+    title: 'Z blogu',
+    before: 'Zaujalo Vás něco a zajímá Vás více můj pohled na cvičení a zdravý životní styl? ',
+    contactLink: 'Kontaktujte mne',
+    after: ' nebo navštivte můj blog a zjistěte více jak o cvičení, zdravém životním stylu i o mně.',
+    cta: 'přejít na blog',
+}
+
+export const blogPage = {
+    title: 'Blog',
+    description: 'Články Petry Konrádové o cvičení bez bolesti, prevenci a zdravém životním stylu.',
+    empty: 'Zatím tu nejsou žádné články.',
+    back: 'všechny články',
+}
