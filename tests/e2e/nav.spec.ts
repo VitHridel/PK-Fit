@@ -45,7 +45,7 @@ test.describe('mobile pill nav', () => {
         await page.goto('/')
         const nav = mainNav(page)
         await expect(nav).toHaveCount(1)
-        for (const label of ['služby', 'kurzy', 'o mně', 'kontakt']) {
+        for (const label of ['služby', 'kurzy', 'blog', 'kontakt']) {
             await expect(nav.getByRole('link', { name: label })).toBeVisible()
         }
         await expect(nav.getByRole('button', { name: 'Další položky' })).toBeVisible()
@@ -74,10 +74,10 @@ test.describe('mobile pill nav', () => {
         const more = nav.getByRole('button', { name: 'Další položky' })
         await more.click()
         await expect(more).toHaveAttribute('aria-expanded', 'true')
-        for (const label of ['semináře', 'reference', 'blog']) {
-            await expect(nav.getByRole('link', { name: label })).toBeVisible()
-        }
-        await expect(nav.getByRole('button', { name: /^Přepnout na/ })).toBeVisible()
+        const menu = page.locator(`[id="${await more.getAttribute('aria-controls')}"]`)
+        const menuLabels = (await menu.getByRole('link').allTextContents()).map((t) => t.trim())
+        expect(menuLabels).toEqual(['o mně', 'semináře', 'reference'])
+        await expect(menu.getByRole('button', { name: /^Přepnout na/ })).toBeVisible()
 
         await page.keyboard.press('Escape')
         await expect(more).toHaveAttribute('aria-expanded', 'false')
@@ -109,7 +109,7 @@ for (const width of [320, 375]) {
         await page.setViewportSize({ width, height: 640 })
         await page.goto('/')
         const nav = mainNav(page)
-        for (const label of ['služby', 'kurzy', 'o mně', 'kontakt']) {
+        for (const label of ['služby', 'kurzy', 'blog', 'kontakt']) {
             const lines = await nav.getByRole('link', { name: label }).evaluate((el) => {
                 const range = document.createRange()
                 range.selectNodeContents(el)

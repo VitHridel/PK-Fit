@@ -10,7 +10,8 @@ export const navItems: NavItem[] = [
     { label: 'kontakt', href: '/#kontakt', sectionId: 'kontakt' },
 ]
 
-const primaryLabels = ['služby', 'kurzy', 'o mně', 'kontakt']
+// Owner: blog must always be one tap away on mobile; "o mně" moves into the "⋯" menu.
+const primaryLabels = ['služby', 'kurzy', 'blog', 'kontakt']
 
 export const mobilePrimaryNav: NavItem[] = navItems.filter((item) =>
     primaryLabels.includes(item.label),
