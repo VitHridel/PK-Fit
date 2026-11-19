@@ -1,0 +1,398 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens (approved at the Task 3 checkpoint).
+ * Contrast (WCAG AA) is verified for every text/background pair:
+ * light — foreground 16.2:1, muted-foreground 7.7:1, primary 4.55:1, primary-ink 5.7:1;
+ * dark  — foreground 16.3:1, muted-foreground 9.3:1, primary 11.1:1.
+ * `accent` (#72D7D1) is decorative on light backgrounds (1.5:1) — never use it for text there.
+ */
+:root {
+    --background: #e7f1f1;
+    --foreground: #0e1414;
+    --surface: #f6fafa;
+    --paper: #f6fafa;
+    --paper-foreground: #0e1414;
+    --paper-link: #0c6964;
+    --card: #f6fafa;
+    --card-foreground: #0e1414;
+    --popover: #f6fafa;
+    --popover-foreground: #0e1414;
+    --primary: #107974;
+    --primary-hover: #0c6964;
+    --primary-foreground: #f6fafa;
+    --primary-ink: #0c6964;
+    --secondary: #dbeaea;
+    --secondary-foreground: #0e1414;
+    --muted: #dbeaea;
+    --muted-foreground: #3f4d4d;
+    --accent: #72d7d1;
+    --accent-foreground: #0e1414;
+    --destructive: #b42318;
+    --border: rgb(14 20 20 / 16%);
+    --rule: #0e1414;
+    --input: #6b7c7c;
+    --field: #ffffff;
+    --placeholder: #5c6d6d;
+    --ring: #107974;
+    --radius: 0.875rem;
+    /* Page side padding; from xl it also keeps content clear of the fixed side nav. */
+    --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+}
+
+@media (min-width: 80rem) {
+    :root {
+        --gutter: max(7rem, calc((100vw - 72rem) / 2));
+    }
+}
+
+.dark {
+    --background: #0c1212;
+    --foreground: #e8f0f0;
+    --surface: #152121;
+    --paper: #f6fafa;
+    --paper-foreground: #0e1414;
+    --paper-link: #0c6964;
+    --card: #152121;
+    --card-foreground: #e8f0f0;
+    --popover: #152121;
+    --popover-foreground: #e8f0f0;
+    --primary: #72d7d1;
+    --primary-hover: #9be3df;
+    --primary-foreground: #0c1212;
+    --primary-ink: #72d7d1;
+    --secondary: #1b2a2a;
+    --secondary-foreground: #e8f0f0;
+    --muted: #1b2a2a;
+    --muted-foreground: #a3baba;
+    --accent: #72d7d1;
+    --accent-foreground: #0c1212;
+    --destructive: #ff8a80;
+    --border: rgb(232 240 240 / 14%);
+    --rule: #e8f0f0;
+    --input: #5e7676;
+    --field: #0c1212;
+    --placeholder: #7f9696;
+    --ring: #72d7d1;
+}
+
+@theme inline {
+    --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    --font-hand: var(--font-caveat), cursive;
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-surface: var(--surface);
+    --color-paper: var(--paper);
+    --color-paper-foreground: var(--paper-foreground);
+    --color-paper-link: var(--paper-link);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-hover: var(--primary-hover);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary-ink: var(--primary-ink);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-rule: var(--rule);
+    --color-input: var(--input);
+    --color-field: var(--field);
+    --color-placeholder: var(--placeholder);
+    --color-ring: var(--ring);
+
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.2);
+
+    /* Type scale (fluid). Body text is 16–18 px for an audience that includes older adults. */
+    --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-body--line-height: 1.6;
+    --text-hero: clamp(2.5rem, 1.6rem + 3vw, 3.75rem);
+    --text-hero--line-height: 1.1;
+    --text-hero--letter-spacing: -0.025em;
+    --text-section: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+    --text-section--line-height: 1.15;
+    --text-section--letter-spacing: -0.02em;
+    --text-title: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+    --text-title--line-height: 1.35;
+
+    /* Spacing rhythm on a 4 px base; sections breathe 64 px (mobile) to 120 px (desktop). */
+    --spacing-section: clamp(4rem, 2.5rem + 6vw, 7.5rem);
+    --spacing-gutter: var(--gutter);
+    --container-content: 72rem;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    /* No scroll-padding: sections carry their own top padding, so anchor jumps (#sluzby…)
+       land exactly on the section and nothing of the previous one stays in view. */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+        html {
+            scroll-behavior: smooth;
+        }
+    }
+
+    body {
+        @apply bg-background font-sans text-foreground antialiased;
+        font-size: var(--text-body);
+        line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        text-wrap: balance;
+    }
+
+    p {
+        text-wrap: pretty;
+    }
+
+    a {
+        text-underline-offset: 0.2em;
+    }
+
+    html {
+        accent-color: var(--primary);
+        caret-color: var(--primary);
+        scrollbar-color: color-mix(in oklab, var(--foreground) 35%, transparent) var(--background);
+    }
+
+    ::selection {
+        background-color: var(--accent);
+        color: var(--accent-foreground);
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--ring);
+        outline-offset: 3px;
+    }
+
+    /*
+     * Without JS, collapsed <ShowMore> items stay visible. This must live in the base layer:
+     * Tailwind's preflight hides [hidden] with !important there, and for !important a layered
+     * rule beats any unlayered one (e.g. a <noscript> style) regardless of specificity.
+     */
+    @media (scripting: none) {
+        li[data-show-more][hidden] {
+            display: block !important;
+        }
+    }
+
+    /* Programmatic focus targets (e.g. <main> after the skip link) don't need a ring. */
+    [tabindex='-1']:focus {
+        outline: none;
+    }
+}
+
+/*
+ * Hero entrance — pure CSS so it starts at first paint (no JS needed).
+ * Timeline: photo 0.15s; eyebrow + H1 word by word from 0.55s, 80 ms apart; lead paragraph and
+ * the late group (logo, toggle, nav, arrow) get their delays from variables the Hero sets
+ * (`--hero-lead-delay`, `--hero-late-delay`) because they depend on the word count.
+ */
+@keyframes hero-photo {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+}
+
+@keyframes hero-word {
+    from {
+        opacity: 0;
+        transform: translateY(0.4em);
+        filter: blur(4px);
+    }
+}
+
+@keyframes hero-fade {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes hero-slide {
+    from {
+        opacity: 0;
+        transform: translateX(6px);
+    }
+}
+
+@keyframes hero-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+@keyframes hero-bob {
+    0%,
+    100% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-photo {
+        animation: hero-photo 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+    }
+
+    .hero-word {
+        display: inline-block;
+        animation: hero-word 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        animation-delay: calc(0.55s + var(--i) * 80ms);
+    }
+
+    .hero-lead {
+        animation: hero-word 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--hero-lead-delay) both;
+    }
+
+    /* Only while a hero is on the page; other routes show the chrome immediately. */
+    :root:has([data-hero]) [data-hero-late] {
+        animation: hero-fade 0.6s ease-out var(--hero-late-delay) both;
+    }
+
+    :root:has([data-hero]) [data-hero-late='slide'] {
+        animation-name: hero-slide;
+    }
+
+    .hero-arrow {
+        animation: hero-rise 0.6s ease-out var(--hero-late-delay) both;
+    }
+
+    .hero-arrow-icon {
+        animation: hero-bob 1.6s ease-in-out calc(var(--hero-late-delay) + 0.6s) infinite;
+    }
+}
+
+/* Typography for arbitrary CMS article HTML (see src/components/blog/ArticleBody.tsx). */
+@layer components {
+    .article-body {
+        font-size: var(--text-body);
+        line-height: 1.75;
+        color: var(--foreground);
+    }
+
+    .article-body > * + * {
+        margin-top: 1.25em;
+    }
+
+    .article-body :is(h2, h3, h4) {
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+        margin-top: 2em;
+    }
+
+    .article-body h2 {
+        font-size: 1.6em;
+    }
+
+    .article-body h3 {
+        font-size: 1.3em;
+    }
+
+    .article-body h4 {
+        font-size: 1.1em;
+    }
+
+    .article-body :is(h2, h3, h4) + * {
+        margin-top: 0.6em;
+    }
+
+    .article-body :is(ul, ol) {
+        padding-left: 1.4em;
+    }
+
+    .article-body ul {
+        list-style: disc;
+    }
+
+    .article-body ol {
+        list-style: decimal;
+    }
+
+    .article-body li + li {
+        margin-top: 0.4em;
+    }
+
+    .article-body li::marker {
+        color: var(--primary-ink);
+        font-weight: 600;
+    }
+
+    .article-body a {
+        color: var(--primary-ink);
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+
+    .article-body a:hover {
+        text-decoration-thickness: 2px;
+    }
+
+    .article-body blockquote {
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--border);
+        padding: 1.25em 0;
+        font-size: 1.15em;
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    .article-body :is(img, figure) {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    .article-body img {
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+    }
+
+    .article-body figure img {
+        margin: 0;
+    }
+
+    .article-body figcaption {
+        margin-top: 0.75em;
+        font-size: 0.875em;
+        color: var(--muted-foreground);
+    }
+
+    .article-body em {
+        font-style: italic;
+    }
+
+    .article-body strong {
+        font-weight: 600;
+    }
+}

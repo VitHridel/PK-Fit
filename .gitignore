@@ -36,3 +36,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# brainstorming mockups
+.superpowers/
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/
+
+# impeccable decision-page logs
+/.impeccable/questions/
+/.impeccable/review/
