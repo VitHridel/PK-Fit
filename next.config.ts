@@ -5,7 +5,23 @@ const nextConfig: NextConfig = {
     turbopack: {
         rules: {
             '*.svg': {
-                loaders: ['@svgr/webpack'],
+                loaders: [
+                    {
+                        loader: '@svgr/webpack',
+                        options: {
+                            // Keep viewBox and drop fixed width/height so SVGs scale with CSS.
+                            dimensions: false,
+                            svgoConfig: {
+                                plugins: [
+                                    {
+                                        name: 'preset-default',
+                                        params: { overrides: { removeViewBox: false } },
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                ],
                 as: '*.js',
             },
         },

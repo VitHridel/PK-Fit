@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { Caveat, Poppins } from 'next/font/google'
 import type { ReactNode } from 'react'
+import { Footer } from '@/components/layout/Footer'
+import { MobileNav } from '@/components/layout/MobileNav'
+import { SideNav } from '@/components/layout/SideNav'
+import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SkipLink } from '@/components/layout/SkipLink'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
-import { ThemeToggle } from '@/components/theme/ThemeToggle'
 import { site } from '@/content/site'
 import './globals.css'
 
@@ -39,12 +42,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <body>
                 <ThemeProvider>
                     <SkipLink />
-                    <div className="fixed top-4 right-4 z-40">
-                        <ThemeToggle />
-                    </div>
+                    <SiteHeader />
+                    <SideNav />
                     <main id="obsah" tabIndex={-1}>
                         {children}
                     </main>
+                    <Footer />
+                    <MobileNav />
                 </ThemeProvider>
             </body>
         </html>
