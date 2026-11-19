@@ -28,7 +28,7 @@ export function Hero() {
         >
             {/* Delays depend on the copy length, so they are computed here and shared via CSS variables. */}
             <style>{`:root{--hero-lead-delay:${leadDelay.toFixed(2)}s;--hero-late-delay:${lateDelay.toFixed(2)}s}`}</style>
-            <div className="mx-auto grid w-full max-w-content items-center gap-10 lg:flex-1 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+            <div className="mx-auto grid w-full max-w-content items-center gap-10 lg:flex-1 lg:grid-cols-[1fr_1.15fr] lg:gap-12">
                 <div className="max-w-xl">
                     <p className="text-[0.9375rem] font-semibold tracking-[0.04em] text-primary-ink">
                         <WordReveal text={hero.eyebrow} startIndex={0} />
@@ -45,18 +45,19 @@ export function Hero() {
                         {hero.lead}
                     </p>
                 </div>
-                {/* On desktop the photo's hard bottom crop sits on the hero's bottom hairline instead of floating.
+                {/* On desktop the photo is as large as the viewport height allows (aspect ≈ 0.95) and its hard
+                    bottom crop sits on the hero's bottom hairline instead of floating.
                     The mobile hero (text first, photo, arrow above the pill nav) is owner-approved as is. */}
                 <div
                     data-hero-photo
-                    className="hero-photo mx-auto w-full max-w-[18rem] sm:max-w-sm lg:max-w-[30rem] lg:self-end"
+                    className="hero-photo mx-auto w-full max-w-[18rem] sm:max-w-sm lg:mr-0 lg:max-w-[min(40rem,calc((100svh-5rem)*0.95))] lg:self-end"
                 >
                     <Image
                         src={heroImage}
                         alt={hero.imageAlt}
                         fetchPriority="high"
                         loading="eager"
-                        sizes="(min-width: 1024px) 30rem, (min-width: 640px) 24rem, 18rem"
+                        sizes="(min-width: 1024px) 40rem, (min-width: 640px) 24rem, 18rem"
                         className="h-auto w-full"
                     />
                 </div>

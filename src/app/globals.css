@@ -141,8 +141,9 @@
         @apply border-border;
     }
 
+    /* No scroll-padding: sections carry their own top padding, so anchor jumps (#sluzby…)
+       land exactly on the section and nothing of the previous one stays in view. */
     html {
-        scroll-padding-top: 1.5rem;
         -webkit-text-size-adjust: 100%;
     }
 

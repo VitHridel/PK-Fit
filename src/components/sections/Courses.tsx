@@ -112,52 +112,56 @@ export function Courses({ courses, now }: { courses: Course[]; now: Date }) {
 
     return (
         <section id="kurzy" aria-labelledby="kurzy-title" className="px-gutter py-section">
-            <Reveal className="mx-auto max-w-content">
-                <h2 id="kurzy-title" className="text-section font-semibold">
-                    {coursesSection.title}
-                </h2>
+            <div className="mx-auto max-w-content">
+                <Reveal>
+                    <h2 id="kurzy-title" className="text-section font-semibold">
+                        {coursesSection.title}
+                    </h2>
 
-                <section
-                    aria-labelledby="kurzy-upcoming"
-                    className="mt-8 border-t border-rule pt-8"
-                >
-                    <h3 id="kurzy-upcoming" className="mb-6 text-title font-semibold">
-                        {coursesSection.upcomingTitle}
-                    </h3>
-                    {upcoming.length > 0 ? (
-                        <div className="space-y-14">
-                            {upcoming.map((course) => (
-                                <UpcomingCourse key={course.id} course={course} />
-                            ))}
-                        </div>
-                    ) : (
-                        <EmptyUpcoming />
-                    )}
-                </section>
+                    <section
+                        aria-labelledby="kurzy-upcoming"
+                        className="mt-8 border-t border-rule pt-8"
+                    >
+                        <h3 id="kurzy-upcoming" className="mb-6 text-title font-semibold">
+                            {coursesSection.upcomingTitle}
+                        </h3>
+                        {upcoming.length > 0 ? (
+                            <div className="space-y-14">
+                                {upcoming.map((course) => (
+                                    <UpcomingCourse key={course.id} course={course} />
+                                ))}
+                            </div>
+                        ) : (
+                            <EmptyUpcoming />
+                        )}
+                    </section>
+                </Reveal>
 
                 {past.length > 0 && (
-                    <section aria-labelledby="kurzy-past" className="mt-16">
-                        <h3 id="kurzy-past" className="mb-6 text-title font-semibold">
-                            {coursesSection.pastTitle}
-                        </h3>
-                        <ShowMore
-                            initial={3}
-                            moreLabel={coursesSection.showOlder}
-                            className="mb-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-3"
-                            // Phones: the third print sits centred on its own row instead of orphaned left.
-                            itemClassName="odd:-rotate-[2deg] even:rotate-[1.5deg] focus:outline-none max-sm:[&:nth-child(3)]:col-span-2 max-sm:[&:nth-child(3)]:mx-auto max-sm:[&:nth-child(3)]:w-1/2"
-                            trailing={allCoursesLink}
-                            items={past.map((course) => (
-                                <PastCourse key={course.id} course={course} />
-                            ))}
-                        />
-                    </section>
+                    <Reveal>
+                        <section aria-labelledby="kurzy-past" className="mt-16">
+                            <h3 id="kurzy-past" className="mb-6 text-title font-semibold">
+                                {coursesSection.pastTitle}
+                            </h3>
+                            <ShowMore
+                                initial={3}
+                                moreLabel={coursesSection.showOlder}
+                                className="mb-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-3"
+                                // Phones: the third print sits centred on its own row instead of orphaned left.
+                                itemClassName="odd:-rotate-[2deg] even:rotate-[1.5deg] focus:outline-none max-sm:[&:nth-child(3)]:col-span-2 max-sm:[&:nth-child(3)]:mx-auto max-sm:[&:nth-child(3)]:w-1/2"
+                                trailing={allCoursesLink}
+                                items={past.map((course) => (
+                                    <PastCourse key={course.id} course={course} />
+                                ))}
+                            />
+                        </section>
+                    </Reveal>
                 )}
 
                 {past.length === 0 && (
                     <div className="mt-10 flex justify-end">{allCoursesLink}</div>
                 )}
-            </Reveal>
+            </div>
         </section>
     )
 }

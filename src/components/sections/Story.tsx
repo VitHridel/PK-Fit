@@ -28,14 +28,16 @@ function Paragraph({ segments, lead }: { segments: RichParagraph; lead: boolean 
 export function Story() {
     return (
         <section id="o-mne" aria-labelledby="o-mne-title" className="px-gutter py-section">
-            <Reveal className="mx-auto grid max-w-content items-start gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-                <Image
-                    src={meImage}
-                    alt={story.imageAlt}
-                    sizes="(min-width: 768px) 40vw, 100vw"
-                    className="mx-auto h-auto w-full max-w-sm md:max-w-none"
-                />
-                <div>
+            <div className="mx-auto grid max-w-content items-start gap-10 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+                <Reveal>
+                    <Image
+                        src={meImage}
+                        alt={story.imageAlt}
+                        sizes="(min-width: 768px) 40vw, 100vw"
+                        className="mx-auto h-auto w-full max-w-sm md:max-w-none"
+                    />
+                </Reveal>
+                <Reveal delay={0.1}>
                     <h2 id="o-mne-title" className="text-section font-semibold">
                         {story.title}
                     </h2>
@@ -47,8 +49,8 @@ export function Story() {
                     <p className="mt-6 inline-block -rotate-2 font-hand text-4xl text-primary-ink">
                         {story.signature}
                     </p>
-                </div>
-            </Reveal>
+                </Reveal>
+            </div>
         </section>
     )
 }

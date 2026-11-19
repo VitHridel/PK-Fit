@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Reveal } from '@/components/motion/Reveal'
+import { RevealItem, RevealList } from '@/components/motion/Reveal'
 import { gallery } from '@/content/gallery'
 import { cn } from '@/lib/utils'
 
@@ -8,14 +8,11 @@ export function Gallery() {
 
     return (
         <section aria-label="Galerie" className="px-gutter py-section">
-            <Reveal
-                as="ul"
-                className="mx-auto grid max-w-content grid-cols-2 items-start gap-3 sm:gap-4 lg:grid-cols-4"
-            >
+            <RevealList className="mx-auto grid max-w-content grid-cols-2 items-start gap-3 sm:gap-4 lg:grid-cols-4">
                 {gallery.map((item, index) => {
                     const isLastOnMobile = index === lastMobileIndex
                     return (
-                        <li
+                        <RevealItem
                             key={item.alt}
                             className={cn(
                                 index % 2 === 1 && 'lg:mt-12',
@@ -33,10 +30,10 @@ export function Gallery() {
                                     isLastOnMobile && 'max-sm:aspect-[4/3] max-sm:object-top',
                                 )}
                             />
-                        </li>
+                        </RevealItem>
                     )
                 })}
-            </Reveal>
+            </RevealList>
         </section>
     )
 }
