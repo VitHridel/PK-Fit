@@ -28,7 +28,7 @@ function NavLink({
             aria-current={isActive ? 'location' : undefined}
             onClick={onNavigate}
             className={cn(
-                'rounded-full text-muted-foreground no-underline transition-colors hover:text-foreground',
+                'rounded-full whitespace-nowrap text-muted-foreground no-underline transition-colors hover:text-foreground',
                 isActive && 'font-semibold text-foreground',
                 className,
             )}
@@ -81,7 +81,7 @@ export function MobileNav() {
             data-hero-late
             inert={hidden}
             className={cn(
-                'fixed inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex justify-center px-4 transition-transform duration-300 ease-out motion-reduce:transition-none xl:hidden',
+                'fixed inset-x-0 bottom-[max(1rem,env(safe-area-inset-bottom))] z-40 flex justify-center px-3 transition-transform duration-300 ease-out motion-reduce:transition-none xl:hidden',
                 hidden && 'translate-y-[calc(100%+2rem)]',
             )}
         >
@@ -114,7 +114,7 @@ export function MobileNav() {
                             <NavLink
                                 item={item}
                                 activeHref={activeHref}
-                                className="inline-flex min-h-11 items-center px-3"
+                                className="inline-flex min-h-11 items-center px-3 max-[389px]:px-2 max-[389px]:text-sm"
                             />
                         </li>
                     ))}
@@ -126,7 +126,7 @@ export function MobileNav() {
                             aria-expanded={open}
                             aria-controls={menuId}
                             onClick={() => setOpen((value) => !value)}
-                            className="inline-grid size-11 place-items-center rounded-full text-muted-foreground transition-colors hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground"
+                            className="inline-grid size-11 shrink-0 place-items-center rounded-full max-[389px]:w-9 text-muted-foreground transition-colors hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground"
                         >
                             <Ellipsis aria-hidden className="size-5" />
                         </button>

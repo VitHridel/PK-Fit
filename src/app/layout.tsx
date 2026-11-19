@@ -6,6 +6,7 @@ import { MobileNav } from '@/components/layout/MobileNav'
 import { SideNav } from '@/components/layout/SideNav'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SkipLink } from '@/components/layout/SkipLink'
+import { MotionProvider } from '@/components/motion/MotionProvider'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import { site } from '@/content/site'
 import './globals.css'
@@ -40,15 +41,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             className={`${poppins.variable} ${caveat.variable}`}
         >
             <body>
+                <noscript>
+                    {/* Scroll reveals start hidden; without JS they would never appear. */}
+                    <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
+                </noscript>
                 <ThemeProvider>
-                    <SkipLink />
-                    <SiteHeader />
-                    <SideNav />
-                    <main id="obsah" tabIndex={-1}>
-                        {children}
-                    </main>
-                    <Footer />
-                    <MobileNav />
+                    <MotionProvider>
+                        <SkipLink />
+                        <SiteHeader />
+                        <SideNav />
+                        <main id="obsah" tabIndex={-1}>
+                            {children}
+                        </main>
+                        <Footer />
+                        <MobileNav />
+                    </MotionProvider>
                 </ThemeProvider>
             </body>
         </html>

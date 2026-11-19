@@ -1,5 +1,8 @@
+import { Reveal } from '@/components/motion/Reveal'
+import { Hero } from '@/components/sections/Hero'
+
 // Temporary placeholder sections so navigation can be built and tested;
-// each one is replaced by its real section in Tasks 5–10.
+// each one is replaced by its real section in Tasks 6–10.
 const placeholders = [
     ['sluzby', 'Služby'],
     ['kurzy', 'Kurzy'],
@@ -12,10 +15,12 @@ const placeholders = [
 export default function HomePage() {
     return (
         <>
-            <h1 className="px-gutter pt-32 text-hero font-bold">PK-FIT</h1>
+            <Hero />
             {placeholders.map(([id, title]) => (
                 <section key={id} id={id} className="min-h-screen px-gutter py-section">
-                    <h2 className="text-section font-semibold">{title}</h2>
+                    <Reveal className="mx-auto max-w-content">
+                        <h2 className="text-section font-semibold">{title}</h2>
+                    </Reveal>
                 </section>
             ))}
         </>

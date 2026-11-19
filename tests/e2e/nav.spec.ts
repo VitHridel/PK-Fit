@@ -102,3 +102,23 @@ test('footer carries contact details, socials and the GDPR link', async ({ page 
         'https://facebook.com/test',
     )
 })
+
+for (const width of [320, 375]) {
+    test(`mobile pill items stay on one line at ${width}px`, async ({ page, isMobile }) => {
+        test.skip(!isMobile, 'mobile only')
+        await page.setViewportSize({ width, height: 640 })
+        await page.goto('/')
+        const nav = mainNav(page)
+        for (const label of ['služby', 'kurzy', 'o mně', 'kontakt']) {
+            const lines = await nav.getByRole('link', { name: label }).evaluate((el) => {
+                const range = document.createRange()
+                range.selectNodeContents(el)
+                return new Set([...range.getClientRects()].map((rect) => Math.round(rect.top))).size
+            })
+            expect(lines, `"${label}" wraps`).toBe(1)
+        }
+        const box = await nav.locator('ul').last().boundingBox()
+        expect(box!.x).toBeGreaterThanOrEqual(0)
+        expect(box!.x + box!.width).toBeLessThanOrEqual(width)
+    })
+}

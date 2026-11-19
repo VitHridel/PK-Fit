@@ -12,7 +12,7 @@ export function SideNav() {
     return (
         <nav
             aria-label="Hlavní navigace"
-            data-hero-late
+            data-hero-late="slide"
             className="fixed top-20 right-4 z-40 hidden xl:block"
         >
             <ul className="flex flex-col items-end gap-0.5 text-[0.8125rem] leading-snug tracking-[0.01em]">

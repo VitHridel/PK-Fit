@@ -6,6 +6,8 @@ export type RichParagraph = RichSegment[]
 export const hero = {
     eyebrow: 'Petra Konrádová · fitness trenérka',
     title: 'Zdravé tělo bez bolesti',
+    /** The approved hero breaks the title after "tělo". */
+    titleLines: ['Zdravé tělo', 'bez bolesti'] as const,
     lead: 'Pomáhám od bolesti a učím prevenci, aby se pohyb stal radostí, ne povinností.',
     imageAlt: 'Petra Konrádová',
 }
