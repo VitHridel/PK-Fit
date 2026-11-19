@@ -28,7 +28,7 @@ export default function NotFound() {
                 <Image
                     src={questionMarks}
                     alt=""
-                    priority
+                    loading="eager"
                     className="hidden h-auto w-full max-w-sm md:block"
                 />
             </div>

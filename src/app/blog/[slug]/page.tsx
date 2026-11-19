@@ -68,7 +68,8 @@ export default async function PostPage({ params }: Props) {
                         alt={post.coverImage.alt}
                         width={post.coverImage.width}
                         height={post.coverImage.height}
-                        priority
+                        fetchPriority="high"
+                        loading="eager"
                         sizes="(min-width: 768px) 44rem, 100vw"
                         className="mt-10 aspect-[3/2] w-full rounded-lg object-cover"
                     />

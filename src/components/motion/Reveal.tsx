@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'motion/react'
+import { MotionConfig, motion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 const elements = {
@@ -25,16 +25,20 @@ type Props = {
  */
 export function Reveal({ as = 'div', delay = 0, className, children }: Props) {
     const Element = elements[as]
+    // MotionConfig lives here rather than in the root layout so pages without reveals
+    // (blog, GDPR) don't download Motion at all.
     return (
-        <Element
-            data-reveal
-            className={className}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay, ease: [0.2, 0.7, 0.2, 1] }}
-        >
-            {children}
-        </Element>
+        <MotionConfig reducedMotion="user">
+            <Element
+                data-reveal
+                className={className}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay, ease: [0.2, 0.7, 0.2, 1] }}
+            >
+                {children}
+            </Element>
+        </MotionConfig>
     )
 }

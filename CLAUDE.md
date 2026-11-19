@@ -38,10 +38,17 @@ See `.env.template`. Besides the Turnstile/SMTP/social vars:
 - `BLOG_SOURCE` — `mock` uses `src/content/blog-mock.ts`; anything else throws until the CMS integration exists. Mock posts must never reach production.
 - `MAIL_TRANSPORT` — `json` makes nodemailer log instead of send (tests/dev). SMTP setup (host from env, port 25, no TLS) is the owner's infra — do not change it.
 
-## Design process
+## Local setup gotcha
 
-Every section's visual design goes through the **impeccable** skill and is approved by the owner before the next section starts.
+The homepage (blog teaser), `/blog`, posts and `sitemap.xml` read posts at build time, so **`pnpm build` fails unless `BLOG_SOURCE=mock` is set** (in `.env.local` for development). This is intentional: production launches only with the CMS integration.
 
-## Legacy
+## Design
 
-`legacy/` holds the old Next 13 / MUI code as read-only reference while porting. Never import from it; it is deleted at the end of the migration.
+- Product context: `PRODUCT.md`. Approved visual direction (development-only contract): `.impeccable/surfaces/src-app-page-tsx.md` — calm, ruled, numbered lists, real photos; paper objects (taped note, polaroids, `font-hand`) only in Courses.
+- Tokens live in `src/app/globals.css` (`:root` and `.dark`); every text/background pair is WCAG AA. `accent` (#72D7D1) is decorative on light backgrounds — never text. Use `primary-ink` for small teal text, `paper-link` for links on the light paper objects.
+- The hero entrance is pure CSS (`.hero-*` keyframes, `data-hero-late` on chrome); scroll reveals use `<Reveal>` (Motion). Both honour `prefers-reduced-motion`; `[data-reveal]` has a `<noscript>` override.
+- Any visual change goes through the **impeccable** skill and is approved by the owner.
+
+## Quality bar
+
+`tests/e2e/a11y.spec.ts` runs axe (WCAG 2.2 AA) on every page in both themes and both viewports — keep it at zero violations. Lighthouse (mobile) targets: Performance ≥ 90, Accessibility / Best Practices / SEO = 100 on `/` and a blog post. Keep Motion and form code out of the root layout so blog pages don't load it.

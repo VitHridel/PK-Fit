@@ -52,7 +52,8 @@ export function Hero() {
                     <Image
                         src={heroImage}
                         alt={hero.imageAlt}
-                        priority
+                        fetchPriority="high"
+                        loading="eager"
                         sizes="(min-width: 1024px) 30rem, (min-width: 640px) 24rem, 18rem"
                         className="h-auto w-full"
                     />
