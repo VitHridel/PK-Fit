@@ -1,3 +1,9 @@
+export const homeMeta = {
+    title: 'Váš parťák na cestě za zdravým životním stylem.',
+    description:
+        'Získejte inspiraci pro zdravý životní styl a dosáhněte svých fitness cílů s profesionálním trenérem. Vyzkoušejte individuální tréninkové plány a získejte podporu při dosahování optimální kondice. Změňte svůj životní styl s PK-FIT.',
+}
+
 /** A run of text; `strong` segments are rendered emphasized. */
 export type RichSegment = string | { strong: string }
 export type RichParagraph = RichSegment[]
@@ -88,7 +94,7 @@ export const contactSection = {
 }
 
 export const notFound = {
-    title: '404 ERROR',
+    title: '404',
     subtitle: 'Ups... tady nic není',
     text: 'Stránka, kterou hledáte neexistuje. Vraťte se prosím na úvod webu.',
     backLabel: 'zpátky na hlavní stránku',

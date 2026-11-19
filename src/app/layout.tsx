@@ -8,6 +8,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SkipLink } from '@/components/layout/SkipLink'
 import { MotionProvider } from '@/components/motion/MotionProvider'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
+import { homeMeta } from '@/content/home'
 import { site } from '@/content/site'
 import './globals.css'
 
@@ -30,6 +31,14 @@ export const metadata: Metadata = {
     title: {
         default: 'PK-FIT | Petra Konrádová',
         template: '%s | PK-FIT',
+    },
+    description: homeMeta.description,
+    icons: { icon: '/favicon.svg', apple: '/favicon.svg' },
+    openGraph: {
+        type: 'website',
+        locale: 'cs_CZ',
+        siteName: site.brand,
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: site.brand }],
     },
 }
 

@@ -3,9 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArticleBody } from '@/components/blog/ArticleBody'
+import { JsonLd } from '@/components/JsonLd'
 import { blogPage } from '@/content/home'
 import { getPost, getPosts } from '@/lib/blog'
 import { formatLongDate } from '@/lib/dates'
+import { blogPostingJsonLd } from '@/lib/jsonld'
+import { pageMetadata } from '@/lib/metadata'
 
 export const revalidate = 3600
 
@@ -19,7 +22,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = await getPost((await params).slug)
     if (!post) return {}
-    return { title: post.title, description: post.excerpt }
+    return pageMetadata({
+        title: post.title,
+        description: post.excerpt,
+        path: `/blog/${post.slug}`,
+        type: 'article',
+        image: post.coverImage && {
+            url: post.coverImage.url,
+            width: post.coverImage.width,
+            height: post.coverImage.height,
+            alt: post.coverImage.alt,
+        },
+    })
 }
 
 export default async function PostPage({ params }: Props) {
@@ -28,6 +42,7 @@ export default async function PostPage({ params }: Props) {
 
     return (
         <article className="px-gutter pt-32 pb-section">
+            <JsonLd data={blogPostingJsonLd(post)} />
             <div className="mx-auto max-w-[44rem]">
                 <Link
                     href="/blog"

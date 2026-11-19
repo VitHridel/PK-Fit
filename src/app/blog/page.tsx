@@ -2,13 +2,15 @@ import type { Metadata } from 'next'
 import { PostCard } from '@/components/blog/PostCard'
 import { blogPage } from '@/content/home'
 import { getPosts } from '@/lib/blog'
+import { pageMetadata } from '@/lib/metadata'
 
 export const revalidate = 3600
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
     title: blogPage.title,
     description: blogPage.description,
-}
+    path: '/blog',
+})
 
 export default async function BlogPage() {
     const posts = await getPosts()

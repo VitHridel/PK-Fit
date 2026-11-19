@@ -1,3 +1,4 @@
+import { JsonLd } from '@/components/JsonLd'
 import { BlogTeaser } from '@/components/sections/BlogTeaser'
 import { Contact } from '@/components/sections/Contact'
 import { ContactCta } from '@/components/sections/ContactCta'
@@ -9,21 +10,32 @@ import { Seminars } from '@/components/sections/Seminars'
 import { Services } from '@/components/sections/Services'
 import { Story } from '@/components/sections/Story'
 import { courses } from '@/content/courses'
+import { homeMeta } from '@/content/home'
 import { references } from '@/content/references'
 import { getPosts } from '@/lib/blog'
+import { homeJsonLd } from '@/lib/jsonld'
+import { pageMetadata } from '@/lib/metadata'
 
 // Re-render daily so courses move from "upcoming" to "past" without a redeploy.
 export const revalidate = 86400
 
+export const metadata = pageMetadata({
+    title: homeMeta.title,
+    description: homeMeta.description,
+    path: '/',
+})
+
 export default async function HomePage() {
     const posts = await getPosts()
+    const now = new Date()
     return (
         <>
+            <JsonLd data={homeJsonLd(courses, now)} />
             <Hero />
             <Services />
             <ContactCta />
             <Gallery />
-            <Courses courses={courses} now={new Date()} />
+            <Courses courses={courses} now={now} />
             <Story />
             <Seminars />
             <References references={references} />
