@@ -35,12 +35,12 @@ Not allowed: MUI, Emotion, Formik, yup, axios, `@fontsource`.
 
 See `.env.template`. Besides the Turnstile/SMTP/social vars:
 
-- `BLOG_SOURCE` — `mock` uses `src/content/blog-mock.ts`; anything else throws until the CMS integration exists. Mock posts must never reach production.
+- `BLOG_SOURCE` — `mock` uses `src/content/blog-mock.ts`; anything else throws until the CMS integration exists. Mock posts must never reach production (`ALLOW_MOCK_BLOG=1` is required to use mock in production mode).
 - `MAIL_TRANSPORT` — `json` makes nodemailer log instead of send (tests/dev). SMTP setup (host from env, port 25, no TLS) is the owner's infra — do not change it.
 
 ## Local setup gotcha
 
-The homepage (blog teaser), `/blog`, posts and `sitemap.xml` read posts at build time, so **`pnpm build` fails unless `BLOG_SOURCE=mock` is set** (in `.env.local` for development). This is intentional: production launches only with the CMS integration.
+The homepage (blog teaser), `/blog`, posts and `sitemap.xml` read posts at build time **and at runtime** (ISR regeneration, unknown slugs). `BLOG_SOURCE=mock` must be set for both; in production mode (`pnpm build`, `pnpm start`, e2e) mock is refused unless `ALLOW_MOCK_BLOG=1` is also set — that flag must never be set on the live server. Production launches only with the CMS integration.
 
 ## Design
 

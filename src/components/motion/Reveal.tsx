@@ -34,7 +34,9 @@ export function Reveal({ as = 'div', delay = 0, className, children }: Props) {
                 className={className}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                // `amount: 'some'` (not a ratio) so sections taller than the viewport — e.g. at 400 % zoom —
+                // still reveal; the bottom margin waits until the element is a little way in.
+                viewport={{ once: true, amount: 'some', margin: '0px 0px -10% 0px' }}
                 transition={{ duration: 0.6, delay, ease: [0.2, 0.7, 0.2, 1] }}
             >
                 {children}

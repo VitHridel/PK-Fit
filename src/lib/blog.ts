@@ -16,6 +16,13 @@ export type Post = {
 
 async function loadPosts(): Promise<Post[]> {
     if (process.env.BLOG_SOURCE === 'mock') {
+        // Mock posts must never reach production. `next build`/`next start` run with
+        // NODE_ENV=production, so local builds and e2e opt in explicitly with ALLOW_MOCK_BLOG=1.
+        if (process.env.NODE_ENV === 'production' && process.env.ALLOW_MOCK_BLOG !== '1') {
+            throw new Error(
+                'BLOG_SOURCE=mock is not allowed in production (set ALLOW_MOCK_BLOG=1 for local builds)',
+            )
+        }
         // Dynamic import keeps the mock content out of bundles that don't use it.
         const { mockPosts } = await import('@/content/blog-mock')
         return mockPosts

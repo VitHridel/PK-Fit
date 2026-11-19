@@ -16,8 +16,10 @@ import { getPosts } from '@/lib/blog'
 import { homeJsonLd } from '@/lib/jsonld'
 import { pageMetadata } from '@/lib/metadata'
 
-// Re-render daily so courses move from "upcoming" to "past" without a redeploy.
-export const revalidate = 86400
+// Re-render hourly so a finished course moves from "upcoming" to "past" (and loses its Event
+// JSON-LD) soon after its last day ends, without a redeploy. Regeneration also reads blog posts,
+// so a failing blog source keeps serving the previous page.
+export const revalidate = 3600
 
 export const metadata = pageMetadata({
     title: homeMeta.title,

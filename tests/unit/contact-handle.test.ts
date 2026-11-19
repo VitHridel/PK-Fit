@@ -14,7 +14,8 @@ const validFields = {
     'cf-turnstile-response': 'token-123',
 }
 
-const VERIFY_ERROR = 'Ověření se nepovedlo. Zkuste to prosím znovu.'
+const VERIFY_ERROR =
+    'Ověření se nepovedlo. Zkuste to prosím znovu, nebo mi napište na info@pk-fit.cz či zavolejte na +420 720 458 858.'
 
 describe('handleContact', () => {
     it('refuses when Turnstile verification fails and sends nothing', async () => {

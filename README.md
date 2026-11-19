@@ -8,7 +8,7 @@ Next.js 16 (App Router) · React 19 · Tailwind CSS 4 · shadcn/ui · pnpm.
 
 ```bash
 pnpm install
-cp .env.template .env.local   # fill in the values; keep BLOG_SOURCE=mock for local work
+cp .env.template .env.local   # fill in the values; for local work set BLOG_SOURCE=mock (and ALLOW_MOCK_BLOG=1 for pnpm build/start)
 pnpm dev
 ```
 
@@ -19,7 +19,8 @@ pnpm dev
 | `NEXT_PUBLIC_TURNSTILE_SITEKEY`, `TURNSTILE_SECRETKEY` | Cloudflare Turnstile for the contact form |
 | `SMTP_HOST`, `SMTP_SENDER` | Outgoing mail for the contact form |
 | `NEXT_PUBLIC_IG`, `NEXT_PUBLIC_FB` | Social profile URLs |
-| `BLOG_SOURCE` | `mock` (development only) until the CMS integration. Required at build time — `pnpm build` fails without it |
+| `BLOG_SOURCE` | `mock` (development only) until the CMS integration. Read at build time **and** at runtime (ISR regeneration, unknown blog slugs) — keep it set for `next start` |
+| `ALLOW_MOCK_BLOG` | `1` lets a production build/server use `BLOG_SOURCE=mock` (local builds, e2e). Never set it on the live server |
 | `MAIL_TRANSPORT` | `json` = don't send mail (tests/dev) |
 
 ## Scripts
@@ -37,4 +38,4 @@ pnpm dev
 
 - Content (services, courses, references, seminars, GDPR, copy) lives in `src/content/`.
 - The blog data layer `src/lib/blog.ts` is the only module the CMS integration replaces; mock posts must never reach production.
-- Tests: `pnpm test` (Vitest, `tests/unit`) and `pnpm test:e2e` (Playwright incl. axe accessibility checks, `tests/e2e`). The e2e run builds and starts the app with test env (Cloudflare Turnstile test keys, mail not sent).
+- Tests: `pnpm test` (Vitest, `tests/unit`) and `pnpm test:e2e` (Playwright incl. axe accessibility checks, `tests/e2e`). The e2e run builds and starts the app with test env (Cloudflare Turnstile test keys, mail not sent); the contact tests need network access to challenges.cloudflare.com.

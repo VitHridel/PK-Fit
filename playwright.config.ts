@@ -34,6 +34,7 @@ export default defineConfig({
         reuseExistingServer: !process.env.CI,
         env: {
             BLOG_SOURCE: 'mock',
+            ALLOW_MOCK_BLOG: '1',
             MAIL_TRANSPORT: 'json',
             NEXT_PUBLIC_TURNSTILE_SITEKEY: '1x00000000000000000000AA',
             TURNSTILE_SECRETKEY: '1x0000000000000000000000000000000AA',

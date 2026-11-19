@@ -13,7 +13,8 @@ type Deps = { verify: typeof verifyTurnstile; send: typeof sendMail; ip?: string
 
 const VERIFY_FAILED: ContactState = {
     status: 'error',
-    message: 'Ověření se nepovedlo. Zkuste to prosím znovu.',
+    message:
+        'Ověření se nepovedlo. Zkuste to prosím znovu, nebo mi napište na info@pk-fit.cz či zavolejte na +420 720 458 858.',
 }
 
 const SEND_FAILED: ContactState = {

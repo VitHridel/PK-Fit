@@ -126,6 +126,8 @@ export const contactForm = {
     gdprLink: 'podmínkami GDPR',
     turnstileMissing:
         'Ověření proti robotům se nenačetlo. Napište mi prosím na info@pk-fit.cz nebo zavolejte na +420 720 458 858.',
+    turnstilePending:
+        'Ověření proti robotům ještě neproběhlo. Zkuste to prosím za chvilku znovu, nebo mi napište na info@pk-fit.cz či zavolejte na +420 720 458 858.',
     noscript:
         'Formulář potřebuje zapnutý JavaScript. Napište mi na info@pk-fit.cz nebo zavolejte na +420 720 458 858.',
 }

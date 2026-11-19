@@ -40,11 +40,6 @@ export function ContactForm({ siteKey }: { siteKey: string }) {
     const formMessage = clientError ?? (current.status === 'error' ? current.message : undefined)
 
     useEffect(() => {
-        // A Turnstile token is single-use: get a fresh one after every server answer.
-        if (state.status !== 'idle') window.turnstile?.reset()
-    }, [state])
-
-    useEffect(() => {
         if (showSuccess) successRef.current?.focus()
     }, [showSuccess])
 
@@ -53,9 +48,14 @@ export function ContactForm({ siteKey }: { siteKey: string }) {
             setClientError(contactForm.turnstileMissing)
             return
         }
-        setClientError(null)
         // FormData from the form itself also carries Turnstile's hidden `cf-turnstile-response`.
         const data = new FormData(event?.target as HTMLFormElement)
+        if (!data.get('cf-turnstile-response')) {
+            // Widget still solving, errored or expired: don't send a request that must fail.
+            setClientError(contactForm.turnstilePending)
+            return
+        }
+        setClientError(null)
         startTransition(() => formAction(data))
     }
 
@@ -107,6 +107,8 @@ export function ContactForm({ siteKey }: { siteKey: string }) {
 
             <form
                 aria-label={contactForm.label}
+                method="post"
+                data-needs-js
                 noValidate
                 hidden={showSuccess}
                 onSubmit={handleSubmit(onValid)}
@@ -157,7 +159,11 @@ export function ContactForm({ siteKey }: { siteKey: string }) {
                     {fieldError('note')}
                 </Field>
 
-                <Turnstile siteKey={siteKey} />
+                {/* A token is single-use: every server answer asks for a fresh one. */}
+                <Turnstile
+                    siteKey={siteKey}
+                    resetSignal={state.status === 'idle' ? undefined : state}
+                />
 
                 {formMessage && (
                     <p

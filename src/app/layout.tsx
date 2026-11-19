@@ -25,6 +25,12 @@ const caveat = Caveat({
     display: 'swap',
 })
 
+const noscriptCss = [
+    '[data-reveal]{opacity:1!important;transform:none!important}',
+    '[data-show-more-button]{display:none!important}',
+    '[data-needs-js]>:not(noscript){display:none!important}',
+].join('')
+
 export const metadata: Metadata = {
     metadataBase: new URL(site.url),
     title: {
@@ -50,8 +56,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
             <body>
                 <noscript>
-                    {/* Scroll reveals start hidden; without JS they would never appear. */}
-                    <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
+                    {/* Without JS: show scroll reveals and collapsed list items, hide controls that
+                        need JS, and keep the contact form inert (only its noscript note shows). */}
+                    <style>{noscriptCss}</style>
                 </noscript>
                 <ThemeProvider>
                     <SkipLink />

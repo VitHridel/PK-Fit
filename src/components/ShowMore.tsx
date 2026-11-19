@@ -13,8 +13,8 @@ type Props = {
 }
 
 /**
- * Inline expander: every item is in the HTML (good for SEO and no-JS), items past `initial`
- * carry `hidden` until expanded. After expanding, the button goes away and focus moves to the
+ * Inline expander: every item is in the HTML (good for SEO), items past `initial` carry `hidden`
+ * until expanded; without JS a <noscript> rule in the root layout shows them all and hides the button. After expanding, the button goes away and focus moves to the
  * first newly shown item so keyboard and screen-reader users land on the new content.
  */
 export function ShowMore({
@@ -44,6 +44,7 @@ export function ShowMore({
                         ref={index === initial ? firstNewRef : undefined}
                         tabIndex={index === initial ? -1 : undefined}
                         hidden={!expanded && index >= initial}
+                        data-show-more={index >= initial ? '' : undefined}
                         className={itemClassName}
                     >
                         {item}
@@ -53,6 +54,7 @@ export function ShowMore({
             {hasMore && !expanded && (
                 <button
                     type="button"
+                    data-show-more-button
                     aria-expanded={false}
                     aria-controls={listId}
                     onClick={() => setExpanded(true)}

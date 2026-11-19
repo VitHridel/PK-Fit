@@ -183,6 +183,17 @@
         outline-offset: 3px;
     }
 
+    /*
+     * Without JS, collapsed <ShowMore> items stay visible. This must live in the base layer:
+     * Tailwind's preflight hides [hidden] with !important there, and for !important a layered
+     * rule beats any unlayered one (e.g. a <noscript> style) regardless of specificity.
+     */
+    @media (scripting: none) {
+        li[data-show-more][hidden] {
+            display: block !important;
+        }
+    }
+
     /* Programmatic focus targets (e.g. <main> after the skip link) don't need a ring. */
     [tabindex='-1']:focus {
         outline: none;
