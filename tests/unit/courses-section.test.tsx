@@ -40,17 +40,22 @@ describe('Courses', () => {
         ).toHaveAttribute('href', 'https://example.com/next')
 
         const pastRegion = screen.getByRole('region', { name: 'Proběhlé' })
-        const pastLinks = within(pastRegion).getAllByRole('link', { hidden: true })
+        // Course cards only; the "zobrazit všechny kurzy" link shares the region's button row.
+        const courseLinks = (options?: { hidden: boolean }) =>
+            within(pastRegion)
+                .queryAllByRole('link', options)
+                .filter((link) => link.getAttribute('href')?.startsWith('https://example.com/'))
+        const pastLinks = courseLinks({ hidden: true })
         expect(pastLinks).toHaveLength(4)
         pastLinks.forEach((link, index) => {
             expect(link).toHaveAttribute('href', `https://example.com/p${index + 1}`)
             expect(link).toHaveAttribute('target', '_blank')
             expect(link).toHaveAttribute('rel', 'noopener noreferrer')
         })
-        expect(within(pastRegion).getAllByRole('link')).toHaveLength(3)
+        expect(courseLinks()).toHaveLength(3)
 
         await user.click(within(pastRegion).getByRole('button', { name: 'zobrazit starší' }))
-        expect(within(pastRegion).getAllByRole('link')).toHaveLength(4)
+        expect(courseLinks()).toHaveLength(4)
         expect(within(pastRegion).queryByRole('button', { name: 'zobrazit starší' })).toBeNull()
         expect(pastLinks[3].closest('li')).toHaveFocus()
 

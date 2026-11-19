@@ -99,6 +99,16 @@ function PastCourse({ course }: { course: Course }) {
 
 export function Courses({ courses, now }: { courses: Course[]; now: Date }) {
     const { upcoming, past } = splitCourses(courses, now)
+    const allCoursesLink = (
+        <a
+            href={coursesSection.allCoursesUrl}
+            {...external}
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-primary px-5 text-[0.9375rem] font-semibold text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
+        >
+            {coursesSection.allCoursesLabel} ↗
+            <span className="sr-only"> (otevře se v novém okně)</span>
+        </a>
+    )
 
     return (
         <section id="kurzy" aria-labelledby="kurzy-title" className="px-gutter py-section">
@@ -107,7 +117,10 @@ export function Courses({ courses, now }: { courses: Course[]; now: Date }) {
                     {coursesSection.title}
                 </h2>
 
-                <section aria-labelledby="kurzy-upcoming" className="mt-10">
+                <section
+                    aria-labelledby="kurzy-upcoming"
+                    className="mt-8 border-t border-rule pt-8"
+                >
                     <h3 id="kurzy-upcoming" className="mb-6 text-title font-semibold">
                         {coursesSection.upcomingTitle}
                     </h3>
@@ -131,7 +144,9 @@ export function Courses({ courses, now }: { courses: Course[]; now: Date }) {
                             initial={3}
                             moreLabel={coursesSection.showOlder}
                             className="mb-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-3"
-                            itemClassName="odd:-rotate-[2deg] even:rotate-[1.5deg] focus:outline-none"
+                            // Phones: the third print sits centred on its own row instead of orphaned left.
+                            itemClassName="odd:-rotate-[2deg] even:rotate-[1.5deg] focus:outline-none max-sm:[&:nth-child(3)]:col-span-2 max-sm:[&:nth-child(3)]:mx-auto max-sm:[&:nth-child(3)]:w-1/2"
+                            trailing={allCoursesLink}
                             items={past.map((course) => (
                                 <PastCourse key={course.id} course={course} />
                             ))}
@@ -139,16 +154,9 @@ export function Courses({ courses, now }: { courses: Course[]; now: Date }) {
                     </section>
                 )}
 
-                <div className="mt-10 flex justify-end">
-                    <a
-                        href={coursesSection.allCoursesUrl}
-                        {...external}
-                        className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-[0.9375rem] font-semibold text-primary-foreground no-underline transition-colors hover:bg-primary-hover"
-                    >
-                        {coursesSection.allCoursesLabel} ↗
-                        <span className="sr-only"> (otevře se v novém okně)</span>
-                    </a>
-                </div>
+                {past.length === 0 && (
+                    <div className="mt-10 flex justify-end">{allCoursesLink}</div>
+                )}
             </Reveal>
         </section>
     )

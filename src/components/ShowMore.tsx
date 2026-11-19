@@ -10,6 +10,8 @@ type Props = {
     className?: string
     itemClassName?: string
     buttonClassName?: string
+    /** Rendered on the same row as the button, pushed to the right (stays after expanding). */
+    trailing?: ReactNode
 }
 
 /**
@@ -24,6 +26,7 @@ export function ShowMore({
     className,
     itemClassName,
     buttonClassName,
+    trailing,
 }: Props) {
     const [expanded, setExpanded] = useState(false)
     const listId = useId()
@@ -51,20 +54,27 @@ export function ShowMore({
                     </li>
                 ))}
             </ul>
-            {hasMore && !expanded && (
-                <button
-                    type="button"
-                    data-show-more-button
-                    aria-expanded={false}
-                    aria-controls={listId}
-                    onClick={() => setExpanded(true)}
-                    className={cn(
-                        'inline-flex min-h-11 items-center rounded-full border border-input px-5 text-[0.9375rem] font-medium text-foreground transition-colors hover:border-foreground hover:bg-muted',
-                        buttonClassName,
+            {((hasMore && !expanded) || trailing) && (
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                    {hasMore && !expanded && (
+                        <button
+                            type="button"
+                            data-show-more-button
+                            aria-expanded={false}
+                            aria-controls={listId}
+                            onClick={() => setExpanded(true)}
+                            className={cn(
+                                'inline-flex min-h-11 items-center justify-center rounded-full border border-input px-5 text-[0.9375rem] font-medium text-foreground transition-colors hover:border-foreground hover:bg-muted',
+                                buttonClassName,
+                            )}
+                        >
+                            {moreLabel}
+                        </button>
                     )}
-                >
-                    {moreLabel}
-                </button>
+                    {trailing && (
+                        <div className="flex flex-col sm:ml-auto sm:block">{trailing}</div>
+                    )}
+                </div>
             )}
         </>
     )

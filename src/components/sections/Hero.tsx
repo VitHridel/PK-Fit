@@ -24,11 +24,11 @@ export function Hero() {
         <section
             data-hero
             aria-labelledby="hero-title"
-            className="relative isolate flex min-h-svh flex-col justify-center px-gutter pt-24 pb-36 lg:pt-20 lg:pb-24 xl:pb-20"
+            className="relative isolate flex min-h-svh flex-col justify-center px-gutter pt-24 pb-36 lg:pt-20 lg:pb-0"
         >
             {/* Delays depend on the copy length, so they are computed here and shared via CSS variables. */}
             <style>{`:root{--hero-lead-delay:${leadDelay.toFixed(2)}s;--hero-late-delay:${lateDelay.toFixed(2)}s}`}</style>
-            <div className="mx-auto grid w-full max-w-content items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+            <div className="mx-auto grid w-full max-w-content items-center gap-10 lg:flex-1 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
                 <div className="max-w-xl">
                     <p className="text-[0.9375rem] font-semibold tracking-[0.04em] text-primary-ink">
                         <WordReveal text={hero.eyebrow} startIndex={0} />
@@ -45,9 +45,11 @@ export function Hero() {
                         {hero.lead}
                     </p>
                 </div>
+                {/* On desktop the photo's hard bottom crop sits on the hero's bottom hairline instead of floating.
+                    The mobile hero (text first, photo, arrow above the pill nav) is owner-approved as is. */}
                 <div
                     data-hero-photo
-                    className="hero-photo mx-auto w-full max-w-[18rem] sm:max-w-sm lg:max-w-[30rem]"
+                    className="hero-photo mx-auto w-full max-w-[18rem] sm:max-w-sm lg:max-w-[30rem] lg:self-end"
                 >
                     <Image
                         src={heroImage}
@@ -58,6 +60,13 @@ export function Hero() {
                         className="h-auto w-full"
                     />
                 </div>
+            </div>
+            {/* Content-width hairline (like every other rule on the page) for the photo to sit on. */}
+            <div
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 bottom-0 hidden px-gutter lg:block"
+            >
+                <div className="mx-auto max-w-content border-b border-border" />
             </div>
             <a
                 href="#sluzby"

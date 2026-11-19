@@ -21,3 +21,12 @@ FIRST VIEWPORT: Approved hero v4 variant 2: text left (eyebrow, H1 word reveal, 
 FORM: Owner-steered from assigned candidate 6 (anatomical atlas) of my ordered list: atlas restraint kept (rules, numbered entries, captions), illustration dropped for real photos (services S1), courses taken from the paper-poster challenger. Seed key 6824155d.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+## Owner rulings (recorded so later reviews don't reopen them)
+
+- Dark-mode CTA band is bright mint #72D7D1 with dark text (owner approved the Task 6 mock that stated this).
+- Homepage sections fade in once on scroll (spec: "content fades in gently once when scrolled into view").
+- Desktop gallery shows all 4 photos even though one also illustrates Služby; phones show 3 (owner request).
+- Mobile hero stays text first, photo below, arrow above the bottom pill nav (owner approved at the Task 5 checkpoint).
+- Hero eyebrow "Petra Konrádová · fitness trenérka" is part of the approved hero; revisit with the owner when the final hero copy arrives (craft floor flags eyebrows).
+- Mobile pill nav shows služby, kurzy, blog, kontakt; "o mně" lives in the "⋯" menu (owner request after the build).

@@ -1,0 +1,510 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T20:25:38.042Z",
+  "title": "Design System: PK-FIT",
+  "extensions": {
+    "colorMeta": {
+      "mint-ground": {
+        "role": "neutral",
+        "displayName": "Mint Ground",
+        "canonical": "oklch(95.1% 0.011 197.0)",
+        "tonalRamp": [
+          "#060d0d",
+          "#212828",
+          "#3f4747",
+          "#5f6868",
+          "#828b8b",
+          "#a7b0b0",
+          "#cdd6d6",
+          "#e7f1f1"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(18.5% 0.009 196.4)",
+        "tonalRamp": [
+          "#070c0c",
+          "#212828",
+          "#404747",
+          "#606868",
+          "#838b8b",
+          "#a8b0b0",
+          "#ced6d6",
+          "#e8f0f0"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "oklch(98.2% 0.004 197.1)",
+        "tonalRamp": [
+          "#090c0c",
+          "#242727",
+          "#424646",
+          "#636767",
+          "#868a8a",
+          "#abafaf",
+          "#d1d5d5",
+          "#ebefef"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(98.2% 0.004 197.1)",
+        "tonalRamp": [
+          "#090c0c",
+          "#242727",
+          "#424646",
+          "#636767",
+          "#868a8a",
+          "#abafaf",
+          "#d1d5d5",
+          "#ebefef"
+        ]
+      },
+      "deep-teal": {
+        "role": "primary",
+        "displayName": "Deep Teal",
+        "canonical": "oklch(52.1% 0.087 189.6)",
+        "tonalRamp": [
+          "#001413",
+          "#00322f",
+          "#00534f",
+          "#077671",
+          "#3e9a94",
+          "#66c0ba",
+          "#8ee7e0",
+          "#a8fffb"
+        ]
+      },
+      "deep-teal-ink": {
+        "role": "primary",
+        "displayName": "Deep Teal Ink",
+        "canonical": "oklch(47.1% 0.079 188.9)",
+        "tonalRamp": [
+          "#001312",
+          "#00322e",
+          "#00524d",
+          "#1f746f",
+          "#499993",
+          "#70beb8",
+          "#96e5df",
+          "#b0fff9"
+        ]
+      },
+      "bright-mint": {
+        "role": "primary",
+        "displayName": "Bright Mint",
+        "canonical": "oklch(81.7% 0.095 190.4)",
+        "tonalRamp": [
+          "#001414",
+          "#003331",
+          "#005451",
+          "#007773",
+          "#2f9b96",
+          "#5bc1bc",
+          "#84e9e2",
+          "#9ffffd"
+        ]
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "oklch(40.8% 0.018 196.5)",
+        "tonalRamp": [
+          "#030d0e",
+          "#1c2929",
+          "#3a4848",
+          "#5b6969",
+          "#7d8d8d",
+          "#a2b2b2",
+          "#c8d8d8",
+          "#e2f2f2"
+        ]
+      },
+      "secondary-mist": {
+        "role": "neutral",
+        "displayName": "Secondary Mist",
+        "canonical": "oklch(92.6% 0.016 196.9)",
+        "tonalRamp": [
+          "#040d0d",
+          "#1d2929",
+          "#3b4848",
+          "#5c6969",
+          "#7f8c8c",
+          "#a3b1b1",
+          "#c9d8d8",
+          "#e3f2f2"
+        ]
+      },
+      "field-white": {
+        "role": "neutral",
+        "displayName": "Field White",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#262626",
+          "#454545",
+          "#666666",
+          "#898989",
+          "#aeaeae",
+          "#d4d4d4",
+          "#eeeeee"
+        ]
+      },
+      "field-stroke": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "canonical": "oklch(57.2% 0.020 196.6)",
+        "tonalRamp": [
+          "#020e0e",
+          "#1b2a2a",
+          "#394949",
+          "#596a6a",
+          "#7c8d8d",
+          "#a0b2b2",
+          "#c6d9d9",
+          "#e0f3f3"
+        ]
+      },
+      "placeholder": {
+        "role": "neutral",
+        "displayName": "Placeholder",
+        "canonical": "oklch(52.1% 0.020 196.5)",
+        "tonalRamp": [
+          "#020e0e",
+          "#1a2a2a",
+          "#394949",
+          "#596a6a",
+          "#7c8d8d",
+          "#a0b2b2",
+          "#c6d9d9",
+          "#e0f3f3"
+        ]
+      },
+      "error-red": {
+        "role": "error",
+        "displayName": "Error Red",
+        "canonical": "oklch(50.0% 0.182 29.5)",
+        "tonalRamp": [
+          "#320000",
+          "#580000",
+          "#7f170f",
+          "#a73f33",
+          "#d06455",
+          "#fa8979",
+          "#ffb09e",
+          "#ffcab7"
+        ]
+      },
+      "night-ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "oklch(17.6% 0.009 196.3)",
+        "tonalRamp": [
+          "#070c0c",
+          "#212828",
+          "#404747",
+          "#606868",
+          "#838b8b",
+          "#a8b0b0",
+          "#ced6d6",
+          "#e8f0f0"
+        ]
+      },
+      "night-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "oklch(94.9% 0.009 197.0)",
+        "tonalRamp": [
+          "#070c0c",
+          "#222828",
+          "#404646",
+          "#616868",
+          "#848b8b",
+          "#a8b0b0",
+          "#ced6d6",
+          "#e8f0f0"
+        ]
+      },
+      "night-surface": {
+        "role": "neutral",
+        "displayName": "Night Surface",
+        "canonical": "oklch(23.7% 0.017 196.1)",
+        "tonalRamp": [
+          "#040d0d",
+          "#1d2929",
+          "#3b4848",
+          "#5b6969",
+          "#7e8c8c",
+          "#a2b1b1",
+          "#c8d8d8",
+          "#e2f2f2"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Night Muted",
+        "canonical": "oklch(77.1% 0.025 196.6)",
+        "tonalRamp": [
+          "#000e0f",
+          "#172a2b",
+          "#35494a",
+          "#566b6b",
+          "#788e8e",
+          "#9cb3b3",
+          "#c2dada",
+          "#dcf4f4"
+        ]
+      },
+      "night-mint-hover": {
+        "role": "primary",
+        "displayName": "Night Mint Hover",
+        "canonical": "oklch(86.7% 0.072 191.5)",
+        "tonalRamp": [
+          "#001313",
+          "#00312f",
+          "#00514f",
+          "#2a7370",
+          "#509794",
+          "#76bdb9",
+          "#9ce4e0",
+          "#b6fffa"
+        ]
+      },
+      "night-field-stroke": {
+        "role": "neutral",
+        "displayName": "Night Field Stroke",
+        "canonical": "oklch(54.7% 0.028 196.4)",
+        "tonalRamp": [
+          "#000f0f",
+          "#152b2b",
+          "#334a4a",
+          "#546b6b",
+          "#768f8f",
+          "#9ab4b4",
+          "#c0dada",
+          "#daf5f5"
+        ]
+      },
+      "night-error": {
+        "role": "error",
+        "displayName": "Night Error",
+        "canonical": "oklch(75.9% 0.144 26.1)",
+        "tonalRamp": [
+          "#320000",
+          "#580000",
+          "#801618",
+          "#a73e39",
+          "#d0635b",
+          "#fa887e",
+          "#ffafa3",
+          "#ffc9bd"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 and the 404 heading; one per page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings and article titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "List entries, sub-sections, card titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, measure 60–65ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, dates, captions; tabular numerals."
+      },
+      "hand": {
+        "displayName": "Hand (Caveat)",
+        "purpose": "Paper objects and the story signature only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "polaroid",
+        "value": "0 14px 24px -14px rgb(14 20 20 / 0.45)",
+        "purpose": "Polaroid prints."
+      },
+      {
+        "name": "paper-note",
+        "value": "0 10px 18px -10px rgb(14 20 20 / 0.35)",
+        "purpose": "Taped paper note."
+      },
+      {
+        "name": "floating-control",
+        "value": "0 12px 32px -12px rgb(14 20 20 / 0.35)",
+        "purpose": "Mobile pill nav and its menu."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-entrance",
+        "value": "cubic-bezier(0.2, 0.7, 0.2, 1)",
+        "purpose": "Hero word reveal, photo and scroll reveals."
+      },
+      {
+        "name": "hero-word-step",
+        "value": "80ms",
+        "purpose": "Delay between hero words (each 0.5s: fade, rise 0.4em, un-blur)."
+      },
+      {
+        "name": "reveal",
+        "value": "0.6s, 16px rise, once",
+        "purpose": "One-time section fade-in; off with prefers-reduced-motion and without JS."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px",
+        "purpose": "Side nav replaces the mobile pill; gutter ≥ 7rem."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action (all courses, blog, submit).",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">zobrazit všechny kurzy ↗</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:9999px;background:var(--primary);color:var(--primary-foreground);font:600 0.9375rem/1 Poppins,system-ui,sans-serif;text-decoration:none;transition:background-color .15s}.ds-btn-primary:hover{background:var(--primary-hover)}.ds-btn-primary:focus-visible{outline:2px solid var(--ring);outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary inline expanders.",
+      "html": "<button class=\"ds-btn-ghost\">zobrazit všechny reference</button>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:9999px;border:1px solid var(--input);background:transparent;color:var(--foreground);font:500 0.9375rem/1 Poppins,system-ui,sans-serif;cursor:pointer;transition:background-color .15s,border-color .15s}.ds-btn-ghost:hover{border-color:var(--foreground);background:var(--muted)}.ds-btn-ghost:focus-visible{outline:2px solid var(--ring);outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact form field with label above.",
+      "html": "<label class=\"ds-field\"><span>E-mailová adresa *</span><input placeholder=\"jana@email.cz\"></label>",
+      "css": ".ds-field{display:grid;gap:8px;font:500 0.875rem Poppins,system-ui,sans-serif;color:var(--foreground)}.ds-field input{height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--input);background:var(--field);color:var(--foreground);font:400 1rem Poppins,system-ui,sans-serif}.ds-field input::placeholder{color:var(--placeholder)}.ds-field input:focus-visible{border-color:var(--ring);outline:2px solid var(--ring);outline-offset:1px}"
+    },
+    {
+      "name": "Side Navigation",
+      "kind": "nav",
+      "description": "Quiet fixed list on desktop; current section in bold ink.",
+      "html": "<nav class=\"ds-sidenav\"><a href=\"#\">služby</a><a href=\"#\" aria-current=\"location\">kurzy</a><a href=\"#\">o mně</a><a href=\"#\">blog</a></nav>",
+      "css": ".ds-sidenav{display:flex;flex-direction:column;align-items:flex-end;gap:2px;font:400 0.8125rem/1.4 Poppins,system-ui,sans-serif}.ds-sidenav a{padding:4px 0;color:var(--muted-foreground);text-decoration:none}.ds-sidenav a:hover{color:var(--foreground)}.ds-sidenav a[aria-current]{font-weight:600;color:var(--foreground)}"
+    },
+    {
+      "name": "Mobile Pill Nav",
+      "kind": "nav",
+      "description": "Floating bottom pill: four items plus “⋯”.",
+      "html": "<nav class=\"ds-pill\"><a href=\"#\">služby</a><a href=\"#\">kurzy</a><a href=\"#\" aria-current=\"location\">blog</a><a href=\"#\">kontakt</a><button aria-label=\"Další položky\">⋯</button></nav>",
+      "css": ".ds-pill{display:inline-flex;align-items:center;gap:2px;padding:4px;border-radius:9999px;border:1px solid var(--border);background:var(--surface);box-shadow:0 12px 32px -12px rgb(14 20 20/.35);font:400 0.9375rem Poppins,system-ui,sans-serif}.ds-pill a,.ds-pill button{min-height:44px;display:inline-flex;align-items:center;padding:0 12px;border:0;border-radius:9999px;background:none;color:var(--muted-foreground);text-decoration:none;white-space:nowrap}.ds-pill a[aria-current]{font-weight:600;color:var(--foreground)}"
+    },
+    {
+      "name": "Polaroid",
+      "kind": "card",
+      "refersTo": "polaroid",
+      "description": "Past course print, whole print links out.",
+      "html": "<a class=\"ds-polaroid\" href=\"#\"><span class=\"ds-polaroid-img\"></span><span class=\"ds-polaroid-title\">Resort Český les</span></a>",
+      "css": ".ds-polaroid{display:block;width:220px;padding:10px 10px 14px;background:var(--paper);color:var(--paper-foreground);box-shadow:0 14px 24px -14px rgb(14 20 20/.45);transform:rotate(-2deg);text-decoration:none;transition:transform .2s}.ds-polaroid:hover{transform:rotate(-2deg) translateY(-4px)}.ds-polaroid-img{display:block;aspect-ratio:4/3;background:linear-gradient(#7fb069,#4f7d3a)}.ds-polaroid-title{display:block;margin-top:10px;font:700 1.5rem/1 Caveat,cursive}"
+    },
+    {
+      "name": "Paper Note",
+      "kind": "custom",
+      "refersTo": "paper-note",
+      "description": "Empty state for upcoming courses.",
+      "html": "<div class=\"ds-note\"><p class=\"ds-note-title\">Další víkend chystám!</p><p>Termín zatím není venku — <a href=\"#\">napište si o něj</a>.</p></div>",
+      "css": ".ds-note{position:relative;max-width:22rem;padding:24px 24px 20px;border-radius:4px;background:var(--paper);color:var(--paper-foreground);box-shadow:0 10px 18px -10px rgb(14 20 20/.35);transform:rotate(-1.2deg);font:400 .9375rem/1.6 Poppins,system-ui,sans-serif}.ds-note:before{content:\"\";position:absolute;top:-10px;left:50%;width:80px;height:20px;transform:translateX(-50%) rotate(2deg);background:color-mix(in srgb,var(--accent) 75%,transparent)}.ds-note-title{margin:0;font:700 2rem/1 Caveat,cursive}.ds-note a{color:var(--paper-link);font-weight:600}"
+    },
+    {
+      "name": "Contact CTA Band",
+      "kind": "custom",
+      "refersTo": "cta-band",
+      "description": "The page's one full-width colour field.",
+      "html": "<section class=\"ds-cta\"><h2>Máte specifický problém nebo s cvičením teprve začínáte?</h2><p>Zavolejte mi na číslo <a href=\"#\">+420 720 458 858</a>.</p></section>",
+      "css": ".ds-cta{display:grid;gap:16px;padding:64px 40px;background:var(--primary);color:var(--primary-foreground);font-family:Poppins,system-ui,sans-serif}.ds-cta h2{margin:0;font-weight:600;font-size:2rem;line-height:1.15}.ds-cta a{color:inherit;font-weight:600;font-size:1.375rem;text-decoration:underline;text-underline-offset:4px}.ds-cta a:focus-visible{outline:2px solid var(--primary-foreground);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Calm Reference Sheet",
+    "overview": "The site reads like a well-set reference sheet that a patient expert hands you: ruled sections, numbered entries, exact facts (DNS, diagnostics, seminar list), and real photographs of Petra at work. Competence is shown through specifics, never through intensity. Everything that could feel like a gym poster (dark drama, neon, sweat, shouting type) is absent on purpose; the audience arrives in pain or unsure whether to start, and the page lowers that fear.\n\nDensity is relaxed: one idea per section, generous vertical rhythm, a narrow reading measure. Components are calm and welcoming: flat surfaces, hairline rules, rounded pill actions, nothing that competes with the photographs. The only physical objects in the world are paper ones, a taped note and white polaroid prints, and they live in the courses section alone.\n\nLight and dark are equal citizens. Dark mode keeps the same structure on a night-teal ground; the paper objects stay light because they are prints, not UI.",
+    "keyCharacteristics": [
+      "Mint ground, ink text, deep teal for actions; bright mint reserved for \"now\".",
+      "Hairline rules and one heavier ink rule anchoring each section's content.",
+      "Numbered lists with tabular numerals instead of icon-card grids.",
+      "Real photos in softly rounded frames; no illustrations standing in for the subject.",
+      "Poppins throughout; Caveat handwriting only on paper objects and the story signature.",
+      "Motion is an accent: one authored hero entrance, then quiet one-time fades."
+    ],
+    "rules": [
+      {
+        "name": "The Now Rule",
+        "body": "Bright mint marks what is current or interactive-in-progress (active nav weight aside, selection, tape, dark-mode actions); it never becomes a large decorative field in light mode.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Band Rule",
+        "body": "A page carries at most one full-width colour field. On the homepage it is the contact CTA, because contact is the site's main goal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Paper Stays Paper Rule",
+        "body": "Polaroids and the taped note keep the light paper colour and dark ink in both themes; links on paper use Deep Teal Ink, never the theme's primary.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hand Is Paper Rule",
+        "body": "Caveat appears only on paper objects and the signature. It never sets a heading, a button or navigation.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rule Line Rule",
+        "body": "Each section's content starts under a 1px ink rule; items inside are separated by 1px hairlines at 16% ink. Rules replace boxes.",
+        "section": "layout"
+      },
+      {
+        "name": "The Only Objects Cast Shadows Rule",
+        "body": "If it is not paper or a floating control, it has no shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do show real photographs of Petra and real training; use the course's own photo for a course.",
+      "Do structure content as ruled, numbered lists with tabular numerals before reaching for cards.",
+      "Do keep every text/background pair at WCAG AA in both themes; check new colours against the mint and night grounds.",
+      "Do keep motion to the hero entrance plus quiet one-time fades, and honour `prefers-reduced-motion` and no-JS.",
+      "Do keep blog/GDPR pages free of Motion and form code."
+    ],
+    "donts": [
+      "Don't use dark, intense \"gym\" imagery, neon accents or aggressive type — the audience is people in pain or just starting.",
+      "Don't replace photos with illustrated body diagrams or pictograms (rejected by the owner).",
+      "Don't hide content in carousels.",
+      "Don't use Caveat outside paper objects and the signature.",
+      "Don't put bright mint text on light grounds."
+    ]
+  }
+}
