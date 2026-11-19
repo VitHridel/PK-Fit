@@ -17,6 +17,7 @@
     --surface: #f6fafa;
     --paper: #f6fafa;
     --paper-foreground: #0e1414;
+    --paper-link: #0c6964;
     --card: #f6fafa;
     --card-foreground: #0e1414;
     --popover: #f6fafa;
@@ -53,6 +54,7 @@
     --surface: #152121;
     --paper: #f6fafa;
     --paper-foreground: #0e1414;
+    --paper-link: #0c6964;
     --card: #152121;
     --card-foreground: #e8f0f0;
     --popover: #152121;
@@ -84,6 +86,7 @@
     --color-surface: var(--surface);
     --color-paper: var(--paper);
     --color-paper-foreground: var(--paper-foreground);
+    --color-paper-link: var(--paper-link);
     --color-card: var(--card);
     --color-card-foreground: var(--card-foreground);
     --color-popover: var(--popover);

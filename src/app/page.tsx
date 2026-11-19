@@ -1,18 +1,17 @@
 import { Reveal } from '@/components/motion/Reveal'
 import { ContactCta } from '@/components/sections/ContactCta'
+import { Courses } from '@/components/sections/Courses'
 import { Gallery } from '@/components/sections/Gallery'
 import { Hero } from '@/components/sections/Hero'
+import { References } from '@/components/sections/References'
+import { Seminars } from '@/components/sections/Seminars'
 import { Services } from '@/components/sections/Services'
+import { Story } from '@/components/sections/Story'
+import { courses } from '@/content/courses'
+import { references } from '@/content/references'
 
-// Temporary placeholder sections so navigation can be built and tested;
-// each one is replaced by its real section in Tasks 7–10.
-const placeholders = [
-    ['kurzy', 'Kurzy'],
-    ['o-mne', 'O mně'],
-    ['seminare', 'Semináře'],
-    ['reference', 'Reference'],
-    ['kontakt', 'Kontakt'],
-] as const
+// Re-render daily so courses move from "upcoming" to "past" without a redeploy.
+export const revalidate = 86400
 
 export default function HomePage() {
     return (
@@ -21,13 +20,16 @@ export default function HomePage() {
             <Services />
             <ContactCta />
             <Gallery />
-            {placeholders.map(([id, title]) => (
-                <section key={id} id={id} className="min-h-screen px-gutter py-section">
-                    <Reveal className="mx-auto max-w-content">
-                        <h2 className="text-section font-semibold">{title}</h2>
-                    </Reveal>
-                </section>
-            ))}
+            <Courses courses={courses} now={new Date()} />
+            <Story />
+            <Seminars />
+            <References references={references} />
+            {/* Temporary placeholder until the contact section lands in Task 10. */}
+            <section id="kontakt" className="min-h-screen px-gutter py-section">
+                <Reveal className="mx-auto max-w-content">
+                    <h2 className="text-section font-semibold">Kontakt</h2>
+                </Reveal>
+            </section>
         </>
     )
 }

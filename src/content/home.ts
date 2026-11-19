@@ -26,13 +26,27 @@ export const coursesSection = {
     title: 'Sportovní víkendy a akce',
     upcomingTitle: 'Nadcházející',
     pastTitle: 'Proběhlé',
-    emptyUpcoming: 'Další termín připravuji — napište si o něj.',
+    /** Empty state when nothing is upcoming (owner-approved copy). */
+    empty: {
+        title: 'Další víkend chystám!',
+        before: 'Termín zatím není venku — ',
+        link: 'napište si o něj',
+        after: ' a dám vám vědět jako první.',
+    },
+    upcomingCta: 'podrobnosti a přihláška',
+    showOlder: 'zobrazit starší',
     allCoursesLabel: 'zobrazit všechny kurzy',
     allCoursesUrl: 'https://www.cklenka.cz/instruktor/detail/konradova-petra/',
 }
 
-export const story: { title: string; imageAlt: string; paragraphs: RichParagraph[] } = {
+export const story: {
+    title: string
+    imageAlt: string
+    signature: string
+    paragraphs: RichParagraph[]
+} = {
     title: 'Můj příběh',
+    signature: 'Petra',
     imageAlt: 'Petra Konrádová',
     paragraphs: [
         [
@@ -63,7 +77,10 @@ export const story: { title: string; imageAlt: string; paragraphs: RichParagraph
 }
 
 export const seminarsSection = { title: 'Absolvované semináře' }
-export const referencesSection = { title: 'Reference klientů' }
+export const referencesSection = {
+    title: 'Reference klientů',
+    showAll: 'zobrazit všechny reference',
+}
 
 export const contactSection = {
     title: 'Kontaktujte mě',
