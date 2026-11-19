@@ -108,3 +108,18 @@ export const blogPage = {
     empty: 'Zatím tu nejsou žádné články.',
     back: 'všechny články',
 }
+
+export const contactForm = {
+    label: 'Kontaktní formulář',
+    submit: 'odeslat',
+    pending: 'odesílám…',
+    successTitle: 'Děkuji, zpráva je odeslaná',
+    successText: 'Ozvu se vám co nejdříve.',
+    another: 'odeslat další zprávu',
+    gdprBefore: 'Odesláním tohoto formuláře souhlasíte s ',
+    gdprLink: 'podmínkami GDPR',
+    turnstileMissing:
+        'Ověření proti robotům se nenačetlo. Napište mi prosím na info@pk-fit.cz nebo zavolejte na +420 720 458 858.',
+    noscript:
+        'Formulář potřebuje zapnutý JavaScript. Napište mi na info@pk-fit.cz nebo zavolejte na +420 720 458 858.',
+}

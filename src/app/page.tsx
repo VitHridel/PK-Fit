@@ -1,5 +1,5 @@
-import { Reveal } from '@/components/motion/Reveal'
 import { BlogTeaser } from '@/components/sections/BlogTeaser'
+import { Contact } from '@/components/sections/Contact'
 import { ContactCta } from '@/components/sections/ContactCta'
 import { Courses } from '@/components/sections/Courses'
 import { Gallery } from '@/components/sections/Gallery'
@@ -28,12 +28,7 @@ export default async function HomePage() {
             <Seminars />
             <References references={references} />
             <BlogTeaser posts={posts} />
-            {/* Temporary placeholder until the contact section lands in Task 10. */}
-            <section id="kontakt" className="min-h-screen px-gutter py-section">
-                <Reveal className="mx-auto max-w-content">
-                    <h2 className="text-section font-semibold">Kontakt</h2>
-                </Reveal>
-            </section>
+            <Contact />
         </>
     )
 }

@@ -36,6 +36,8 @@
     --border: rgb(14 20 20 / 16%);
     --rule: #0e1414;
     --input: #6b7c7c;
+    --field: #ffffff;
+    --placeholder: #5c6d6d;
     --ring: #107974;
     --radius: 0.875rem;
     /* Page side padding; from xl it also keeps content clear of the fixed side nav. */
@@ -73,6 +75,8 @@
     --border: rgb(232 240 240 / 14%);
     --rule: #e8f0f0;
     --input: #5e7676;
+    --field: #0c1212;
+    --placeholder: #7f9696;
     --ring: #72d7d1;
 }
 
@@ -105,6 +109,8 @@
     --color-border: var(--border);
     --color-rule: var(--rule);
     --color-input: var(--input);
+    --color-field: var(--field);
+    --color-placeholder: var(--placeholder);
     --color-ring: var(--ring);
 
     --radius-sm: 0.25rem;
